@@ -18,7 +18,6 @@
         </div>
         <div class="plus-icon">
         <a href="{{route('postPage')}}">
-
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#4165d2" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
             </svg>
@@ -32,7 +31,10 @@
                 <h5 class="card-title">{{$postList->user_name}}</h5>
                 <p class="card-text">{{$postList->post_text}}</p>
                 <div class="btn-date">
-                    <a href="" class="btn">delete</a>
+                    <div class="buttons">
+                        <a href="" class="btn">delete</a>
+                        <a href="" class="btn">edit</a>
+                    </div>
                     <p>{{$postList->created_at}}</p>
                 </div>
                 </div>

@@ -57,3 +57,10 @@ nav {
     cursor: pointer;
     opacity: 0.5;
 }
+
+.buttons{
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-gap: 10px;
+
+}
