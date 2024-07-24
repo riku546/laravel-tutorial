@@ -12,3 +12,4 @@ Route::post("/", [blogPostController::class, "postText"])->name("postText");
 //投稿一覧画面表示
 Route::get("/postList" , [postListController::class , "displayPage"])->name("displayPostList");
 
+
