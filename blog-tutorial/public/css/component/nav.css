@@ -1,0 +1,24 @@
+nav {
+    display: flex;
+    gap: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.home-icon:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.plus-icon:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.home-icon:active {
+    opacity: 0;
+}
+.plus-icon:active {
+    opacity: 0;
+}

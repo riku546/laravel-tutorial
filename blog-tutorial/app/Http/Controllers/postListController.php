@@ -2,14 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
+
 class postListController extends Controller
 {
-    
 
-    public function displayPage()
+    public function index()
     {
-        $postLists = []
+        $postLists = Blog::all();
         return view("postList", ["postLists" => $postLists]);
+    }
+
+
+
+
+
+    public function destroy(int $id)
+    {
+        Blog::find($id)->delete();
+        return to_route("postList");
     }
 
 }

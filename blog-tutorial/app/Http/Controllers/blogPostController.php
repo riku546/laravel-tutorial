@@ -2,22 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class blogPostController extends Controller
 {
-    public function displayPage()
+    public function index()
     {
         return view("posting");
     }
 
-    public function postText(Request $request)
+    public function store(Request $request)
     {
 
-        Log::debug($request->name);
-        Log::debug($request->textarea);
+        $validated = $request->validate([
+            "user_name" => "required",
+            "post_text" => "required",
+        ]);
 
+        Blog::create($validated);
 
+        return to_route("postList");
     }
 }
