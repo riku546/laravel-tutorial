@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color:#1e1e1e ;
+    background-color: #1e1e1e;
     height: 100vh;
 }
 
@@ -42,7 +42,7 @@ body {
     background-color: #4165d2;
 }
 
-.send-button:hover{
+.send-button:hover {
     opacity: 0.5;
 }
 
@@ -61,23 +61,4 @@ body {
     align-items: center;
     gap: 10px;
     justify-content: center;
-}
-
-
-nav {
-    display: flex;
-    gap: 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-.home-icon:hover {
-    cursor: pointer;
-    opacity: 0.5;
-}
-
-.plus-icon:hover {
-    cursor: pointer;
-    opacity: 0.5;
 }
