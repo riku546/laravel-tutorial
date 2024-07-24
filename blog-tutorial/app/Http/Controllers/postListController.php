@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
-use Illuminate\Support\Facades\Log;
 
 class postListController extends Controller
 {
@@ -15,12 +14,17 @@ class postListController extends Controller
         return view("postList", ["postLists" => $postLists]);
     }
 
-    public function update(){
+    public function update(int $id){
 
     }
 
-    public function destroy(){
-        
+    public function destroy(int $id){
+        try {
+            Blog::find($id)->delete();
+            return to_route("postList");
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
 }

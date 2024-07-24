@@ -17,8 +17,14 @@
             <h1 class="text">blog</h1>
             <form action="{{route('postText')}}" method="post" class="form_inputs">
                 @csrf
-                <label for="" class="text">name:<input type="text" name="user_name" class="name-input"></label>
-                <label for="" class="text">posting:<input class="textarea" name="post_text"></label>
+                <div class="name-area">
+                    <label for="user_name" class="text">name</label>
+                    <input type="text" name="user_name" class="name-input" id="user_name" placeholder="name">
+                </div>
+                <div class="text-area">
+                    <label for="post_text" class="text">posting</label>
+                    <textarea name="post_text" id="text-input" class="text-input" placeholder="text"></textarea>
+                </div>
                 <input type="submit" value="send" name="submit" class="send-button">
             </form>
         </div>

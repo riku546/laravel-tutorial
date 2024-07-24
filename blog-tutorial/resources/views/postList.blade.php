@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+
     <x-nav-component />
     <main>
         @foreach ($postLists as $postList)
@@ -19,8 +19,8 @@
                 <p class="card-text">{{$postList->post_text}}</p>
                 <div class="btn-date">
                     <div class="buttons">
-                        <a href="" class="btn">delete</a>
-                        <a href="" class="btn">edit</a>
+                        <a href="{{route('deletePost' , ['id' => $postList->id])}}" class="btn">delete</a>
+                        <a href="{{route('updatePost' , ['id' => $postList->id])}}" class="btn">edit</a>
                     </div>
                     <p>{{$postList->created_at}}</p>
                 </div>

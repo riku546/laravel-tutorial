@@ -22,6 +22,6 @@ class blogPostController extends Controller
 
         Blog::create($validated);
 
-        return to_route("PostList");
+        return to_route("postList");
     }
 }
