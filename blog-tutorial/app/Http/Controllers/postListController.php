@@ -15,4 +15,12 @@ class postListController extends Controller
         return view("postList", ["postLists" => $postLists]);
     }
 
+    public function update(){
+
+    }
+
+    public function destroy(){
+        
+    }
+
 }
