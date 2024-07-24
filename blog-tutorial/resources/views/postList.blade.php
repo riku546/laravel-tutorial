@@ -18,11 +18,8 @@
                 <h5 class="card-title">{{$postList->user_name}}</h5>
                 <p class="card-text">{{$postList->post_text}}</p>
                 <div class="btn-date">
-                    <div class="buttons">
-                        <!-- <a href="{{route('deletePost' , ['id' => $postList->id])}}" class="btn">delete</a>
-                        <a href="{{route('updatePost' , ['id' => $postList->id])}}" class="btn">update</a> -->
+                    <div class="buttons">                        
                         <x-edit-btn-component route-name="deletePost" method="delete" :post-list="$postList" >delete</x-edit-btn-component>
-                        <x-edit-btn-component route-name="updatePost" method="put" :post-list="$postList">update</x-edit-btn-component>
                     </div>
                     <p>{{$postList->created_at}}</p>
                 </div>

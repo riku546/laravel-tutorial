@@ -13,5 +13,3 @@ Route::post("/", [blogPostController::class, "store"])->name("postText");
 Route::get("/postList", [postListController::class, "index"])->name("postList");
 //投稿の削除
 Route::delete("/postList/{id}", [postListController::class, "destroy"])->name("deletePost");
-//投稿の更新
-Route::put("/postList/{id}", [postListController::class, "update"])->name("updatePost");
