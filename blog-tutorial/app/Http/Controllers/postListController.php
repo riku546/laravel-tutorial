@@ -6,7 +6,6 @@ use App\Models\Blog;
 
 class postListController extends Controller
 {
-    
 
     public function index()
     {
@@ -14,17 +13,15 @@ class postListController extends Controller
         return view("postList", ["postLists" => $postLists]);
     }
 
-    public function update(int $id){
+    public function update(int $id)
+    {
 
     }
 
-    public function destroy(int $id){
-        try {
-            Blog::find($id)->delete();
-            return to_route("postList");
-        } catch (\Throwable $th) {
-            throw $th;
-        }
+    public function destroy(int $id)
+    {
+        Blog::find($id)->delete();
+        return to_route("postList");
     }
 
 }

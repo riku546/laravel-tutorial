@@ -6,7 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/postList.css">
     <link rel="stylesheet" href="/css/component/nav.css">
-    <title>Document</title>
+    <title>blog</title>
 </head>
 <body>
 
@@ -19,8 +19,10 @@
                 <p class="card-text">{{$postList->post_text}}</p>
                 <div class="btn-date">
                     <div class="buttons">
-                        <a href="{{route('deletePost' , ['id' => $postList->id])}}" class="btn">delete</a>
-                        <a href="{{route('updatePost' , ['id' => $postList->id])}}" class="btn">edit</a>
+                        <!-- <a href="{{route('deletePost' , ['id' => $postList->id])}}" class="btn">delete</a>
+                        <a href="{{route('updatePost' , ['id' => $postList->id])}}" class="btn">update</a> -->
+                        <x-edit-btn-component route-name="deletePost" method="delete" :post-list="$postList" >delete</x-edit-btn-component>
+                        <x-edit-btn-component route-name="updatePost" method="put" :post-list="$postList">update</x-edit-btn-component>
                     </div>
                     <p>{{$postList->created_at}}</p>
                 </div>
