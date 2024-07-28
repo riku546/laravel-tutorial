@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\geminiController;
+use App\Http\Controllers\gptController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +20,5 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/test', function (Request $request) {
-    return "api ok";
-});
+Route::get('/gpt', [gptController::class, 'returnAndSaveGptRes']);
+Route::get('gemini', [geminiController::class, 'index']);
