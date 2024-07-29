@@ -21,4 +21,4 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 });
 
 Route::get('/gpt', [gptController::class, 'returnAndSaveGptRes']);
-Route::get('gemini', [geminiController::class, 'index']);
+Route::get('/gemini', [geminiController::class, 'index']);
