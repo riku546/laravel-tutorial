@@ -22,6 +22,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
 
     const register = async ({ setErrors, ...props }) => {
         await csrf()
+        console.log("aaaaa")
 
         setErrors([])
 
