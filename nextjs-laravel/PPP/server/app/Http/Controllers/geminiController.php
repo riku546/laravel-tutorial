@@ -19,3 +19,4 @@ class geminiController extends Controller
 
     }
 }
+
