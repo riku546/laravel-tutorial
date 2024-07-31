@@ -12,6 +12,8 @@ class geminiController extends Controller
 
         $gemini = new Gemini($request);
         $res = $gemini->requestGemini();
+        
         return $res;
+        
     }
 }

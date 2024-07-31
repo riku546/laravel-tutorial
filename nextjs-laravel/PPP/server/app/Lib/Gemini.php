@@ -4,7 +4,6 @@ namespace App\Lib;
 use GeminiAPI\Client;
 use GeminiAPI\Resources\Parts\TextPart;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
 
 class Gemini
@@ -19,11 +18,11 @@ class Gemini
         $this->programmingLang = $request->programmingLang;
     }
 
+    // geminiに問題文 ヒント 回答を生成してもらい、キャッシュしている           
     public function requestGemini(): JsonResponse
     {
 
         try {
-            // geminiに問題文 ヒント 回答を生成してもらい、キャッシュしている           
             $res = Cache::remember('javascript', 3600, function () {
                 //geminiとの通信
                 $client = new Client(env('GEMINI_API_KEY'));
