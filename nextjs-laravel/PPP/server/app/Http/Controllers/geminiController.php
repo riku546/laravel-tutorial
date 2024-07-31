@@ -9,14 +9,9 @@ class geminiController extends Controller
 {
     public function index(Request $request)
     {
-        try {
 
-            return Gemini::geminiRequest($request->prompt);
-
-        } catch (\Throwable $th) {
-            return response()->json(['error' => $th->getMessage()]);
-        }
-
+        $gemini = new Gemini($request);
+        $res = $gemini->requestGemini();
+        return $res;
     }
 }
-
