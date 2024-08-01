@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Lib\abstractClass;
+//GeminiクラスやGptクラスの親クラス
 
-use Illuminate\Http\JsonResponse;
+namespace App\Lib\abstractClass;
 
 abstract class Ai
 {
     private string $problemLevel;
     private string $programmingLang;
-    abstract public function getAIGeneratedText(): JsonResponse;
+    abstract public function getAIGeneratedText(): array;
 }

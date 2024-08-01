@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class stars extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        "num_star",
+    ];
 }

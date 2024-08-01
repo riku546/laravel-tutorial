@@ -1,4 +1,8 @@
 <?php
+
+//このクラスはgeminiで問題文 ヒント 回答を生成してもらうクラス
+//また、ユーザーから受け取った問題のレベルとプログラミング言語の情報を管理している
+
 namespace App\Lib;
 
 require_once "RequestPrompt.php";
@@ -7,23 +11,22 @@ use App\Lib\abstractClass\Ai;
 use function App\Lib\RequestPrompt;
 use GeminiAPI\Client;
 use GeminiAPI\Resources\Parts\TextPart;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Cache;
 
 class Gemini extends Ai
 {
 
-    private string $problemLevel;
+    private string $level;
     private string $programmingLang;
 
     public function __construct(object $request)
     {
-        $this->problemLevel = $request->problemLevel;
+        $this->level = $request->level;
         $this->programmingLang = $request->programmingLang;
     }
 
     // geminiに問題文 ヒント 回答を生成してもらい、キャッシュしている
-    public function getAIGeneratedText(): JsonResponse
+    public function getAIGeneratedText(): array
     {
 
         try {
@@ -32,8 +35,10 @@ class Gemini extends Ai
                 $client = new Client(env('GEMINI_API_KEY'));
                 $chat = $client->geminiPro()->startChat();
 
+                //プロンプトを取得
+                ["problemPrompt" => $problemPrompt, "hintPrompt" => $hintPrompt, "answerPrompt" => $answerPrompt] = RequestPrompt($this->programmingLang, $this->level);
+
                 // 問題文 ヒント 回答を生成
-                ["problemPrompt" => $problemPrompt, "hintPrompt" => $hintPrompt, "answerPrompt" => $answerPrompt] = RequestPrompt($this->programmingLang, $this->problemLevel);
                 $problem = $chat->sendMessage(new TextPart($problemPrompt));
                 $hint = $chat->sendMessage(new TextPart($hintPrompt));
                 $answer = $chat->sendMessage(new TextPart($answerPrompt));
@@ -48,10 +53,10 @@ class Gemini extends Ai
                 return $response;
             });
 
-            return response()->json($res);
+            return $res;
 
         } catch (\Throwable $th) {
-            return response()->json($th->getMessage());
+            return ["error" => $th->getMessage()];
         }
 
     }

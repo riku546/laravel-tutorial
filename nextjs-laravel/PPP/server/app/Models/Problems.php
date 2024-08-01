@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class problems extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        "problem",
+        "hint",
+        "answer",
+        "level",
+        "programmingLang",
+    ];
 }

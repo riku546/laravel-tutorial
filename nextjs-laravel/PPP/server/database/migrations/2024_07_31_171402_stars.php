@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Stars', function (Blueprint $table) {
+        Schema::create('stars', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('problem_id');
             //1~5の星をつける
