@@ -11,7 +11,7 @@ class geminiController extends Controller
     {
 
         $gemini = new Gemini($request);
-        $res = $gemini->requestGemini();
+        $res = $gemini->getAIGeneratedText();
         
         return $res;
         
