@@ -10,14 +10,20 @@ use Illuminate\Http\Request;
 
 class geminiController extends Controller
 {
-    public function index(Request $request)
+
+    public function index(){
+        
+        
+    }
+    
+    public function store(Request $request)
     {
 
         $gemini = new Gemini($request);
         $res = $gemini->getAIGeneratedText();
-
+        
         saveProblems($res, $request);
-
+        
         return response()->json($res);
 
     }

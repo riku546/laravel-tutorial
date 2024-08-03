@@ -9,9 +9,10 @@ use Illuminate\Support\Facades\Auth;
 function saveProblems(array $res, object $request): void
 {
     try {
-
         $problem = new Problems();
-        $problem->user_id = Auth::id();
+        //postmanするときは、Auth::id()使えない
+        // $problem->user_id = Auth::id();
+        $problem->user_id = 1;
         $problem->problem = $res['problem'];
         $problem->hint = $res['hint'];
         $problem->answer = $res['answer'];
