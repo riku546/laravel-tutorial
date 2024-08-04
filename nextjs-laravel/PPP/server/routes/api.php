@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\dbDataFetchController;
+use App\Http\Controllers\dbOperateController;
 use App\Http\Controllers\geminiController;
 use App\Http\Controllers\gptController;
 use Illuminate\Http\Request;
@@ -27,7 +27,13 @@ Route::get('/gpt', [gptController::class, 'returnAndSaveGptRes']);
 Route::post('/geminiGenerate', [geminiController::class, 'store']);
 
 //問題一覧ページに表示する問題データを取得
-Route::get("/allProblems", [dbDataFetchController::class, 'fetchAllProblems']);
+Route::get("/allProblems", [dbOperateController::class, 'fetchAllProblems']);
+
+//ここから下はユーザごとのルート
+//********************************************************************************************************************
 
 //ゆーざーが以前に作成した問題を取得
-Route::get("/personalProblems", [dbDataFetchController::class, 'fetchPersonalProblems']);
+Route::get("/personalProblems", [dbOperateController::class, 'fetchPersonalProblems']);
+
+//ゆーざーが以前に作成した問題を削除
+Route::delete("/deleteProblem", [dbOperateController::class, 'deleteProblem']);
