@@ -1,10 +1,9 @@
 <?php
 //Aiに送るプロンプトを管理する関数
 
+namespace App\Lib\Function;
 
-namespace App\Lib;
-
-function RequestPrompt(string $programmingLang, string $level): array
+function generatePrompt(string $programmingLang, string $level): array
 {
     $problemPrompt = "{$programmingLang}の問題を1つ出してください。または { $level }でお願いします。問題文以外の情報は不要です。";
     $hintPrompt = "先程の問題のヒントを出してください。";

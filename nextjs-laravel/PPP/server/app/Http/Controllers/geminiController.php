@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-require_once base_path("app/Lib/saveProblems.php");
+require_once base_path("app/Lib/Function/saveProblems.php");
 
 use App\Lib\Gemini;
-use function App\Lib\saveProblems;
+use function App\Lib\Function\saveProblems;
 use Illuminate\Http\Request;
 
 class geminiController extends Controller

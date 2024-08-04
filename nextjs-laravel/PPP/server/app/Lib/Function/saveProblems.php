@@ -1,7 +1,7 @@
 <?php
 //この関数は、ProblemsテーブルにAiが生成した問題文 ヒント 回答 問題のレベル プログラミング言語名を保存する関数
 
-namespace App\Lib;
+namespace App\Lib\Function;
 
 use App\Models\Problems;
 
@@ -11,7 +11,7 @@ function saveProblems(array $res, object $request): void
         $problem = new Problems();
         //postmanするときは、Auth::id()使えない
         // $problem->user_id = Auth::id();
-        $problem->user_id = 2;
+        $problem->user_id = 1;
         $problem->problem = $res['problem'];
         $problem->hint = $res['hint'];
         $problem->answer = $res['answer'];

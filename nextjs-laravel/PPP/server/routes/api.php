@@ -24,7 +24,7 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 
 Route::get('/gpt', [gptController::class, 'returnAndSaveGptRes']);
 
-//問題の生成
+//問題の生成と保存
 Route::post('/geminiGenerate', [geminiController::class, 'store']);
 
 //レビュー（星）の保存

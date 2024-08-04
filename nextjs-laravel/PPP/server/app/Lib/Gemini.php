@@ -5,10 +5,10 @@
 
 namespace App\Lib;
 
-require_once "RequestPrompt.php";
+require_once "Function/generatePrompt.php";
 
 use App\Lib\abstractClass\Ai;
-use function App\Lib\RequestPrompt;
+use function App\Lib\Function\generatePrompt;
 use GeminiAPI\Client;
 use GeminiAPI\Resources\Parts\TextPart;
 use Illuminate\Support\Facades\Cache;
@@ -36,9 +36,9 @@ class Gemini extends Ai
                 $chat = $client->geminiPro()->startChat();
 
                 //プロンプトを取得
-                ["problemPrompt" => $problemPrompt, "hintPrompt" => $hintPrompt, "answerPrompt" => $answerPrompt] = RequestPrompt($this->programmingLang, $this->level);
+                ["problemPrompt" => $problemPrompt, "hintPrompt" => $hintPrompt, "answerPrompt" => $answerPrompt] = generatePrompt($this->programmingLang, $this->level);
 
-                // 問題文 ヒント 回答を生成
+                // 問題文 ヒント 回答を送信
                 $problem = $chat->sendMessage(new TextPart($problemPrompt));
                 $hint = $chat->sendMessage(new TextPart($hintPrompt));
                 $answer = $chat->sendMessage(new TextPart($answerPrompt));
