@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('level');
             $table->string('programmingLang');
             $table->integer("stars")->default(0);
+            $table->integer("review_count")->default(0);
             $table->timestamps();
         });
     }

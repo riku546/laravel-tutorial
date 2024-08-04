@@ -11,14 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('stars', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('problem_id');
-            //1~5の星をつける
-            $table->integer("num_star");
-            $table->timestamps();
-            $table->foreign('problem_id')->references('id')->on('Problems');
-        });
+        if (!Schema::hasTable('stars')) {
+            Schema::create('stars', function (Blueprint $table) {
+                //テーブルが存在しない場合のみ実行
+
+                $table->id();
+                $table->unsignedBigInteger('problem_id');
+                //1~5の星をつける
+                $table->integer("num_star");
+                $table->timestamps();
+                $table->foreign('problem_id')->references('id')->on('Problems');
+            });
+        }
     }
 
     /**

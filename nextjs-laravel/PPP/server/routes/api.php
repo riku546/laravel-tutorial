@@ -3,6 +3,7 @@
 use App\Http\Controllers\dbOperateController;
 use App\Http\Controllers\geminiController;
 use App\Http\Controllers\gptController;
+use App\Http\Controllers\reviewController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,14 +27,17 @@ Route::get('/gpt', [gptController::class, 'returnAndSaveGptRes']);
 //問題の生成
 Route::post('/geminiGenerate', [geminiController::class, 'store']);
 
+//レビュー（星）の保存
+Route::post("/reviewRegister", [reviewController::class, 'register']);
+
 //問題一覧ページに表示する問題データを取得
 Route::get("/allProblems", [dbOperateController::class, 'fetchAllProblems']);
 
 //ここから下はユーザごとのルート
 //********************************************************************************************************************
 
-//ゆーざーが以前に作成した問題を取得
+//ユーザーが以前に作成した問題を取得
 Route::get("/personalProblems", [dbOperateController::class, 'fetchPersonalProblems']);
 
-//ゆーざーが以前に作成した問題を削除
+//ユーザーが以前に作成した問題を削除
 Route::delete("/deleteProblem", [dbOperateController::class, 'deleteProblem']);
