@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\dbDataFetchController;
 use App\Http\Controllers\geminiController;
 use App\Http\Controllers\gptController;
 use Illuminate\Http\Request;
@@ -22,6 +23,11 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 
 Route::get('/gpt', [gptController::class, 'returnAndSaveGptRes']);
 
+//問題の生成
+Route::post('/geminiGenerate', [geminiController::class, 'store']);
 
-Route::get('/gemini', [geminiController::class, 'index']);
-Route::post('/gemini', [geminiController::class, 'store']);
+//問題一覧ページに表示する問題データを取得
+Route::get("/allProblems", [dbDataFetchController::class, 'fetchAllProblems']);
+
+//ゆーざーが以前に作成した問題を取得
+Route::get("/personalProblems", [dbDataFetchController::class, 'fetchPersonalProblems']);

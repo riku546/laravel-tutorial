@@ -4,7 +4,6 @@
 namespace App\Lib;
 
 use App\Models\Problems;
-use Illuminate\Support\Facades\Auth;
 
 function saveProblems(array $res, object $request): void
 {
@@ -12,7 +11,7 @@ function saveProblems(array $res, object $request): void
         $problem = new Problems();
         //postmanするときは、Auth::id()使えない
         // $problem->user_id = Auth::id();
-        $problem->user_id = 1;
+        $problem->user_id = 2;
         $problem->problem = $res['problem'];
         $problem->hint = $res['hint'];
         $problem->answer = $res['answer'];

@@ -30,7 +30,7 @@ class Gemini extends Ai
     {
 
         try {
-            $res = Cache::remember('javascript', 3600, function () {
+            $res = Cache::remember('swift', 3600, function () {
                 //geminiとの通信
                 $client = new Client(env('GEMINI_API_KEY'));
                 $chat = $client->geminiPro()->startChat();
