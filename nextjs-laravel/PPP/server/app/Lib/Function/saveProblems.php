@@ -5,6 +5,7 @@ namespace App\Lib\Function;
 
 use App\Models\Problems;
 
+//引数 $resはAiが生成した物  $requestはフロントから渡されたデータ
 function saveProblems(array $res, object $request): void
 {
     try {

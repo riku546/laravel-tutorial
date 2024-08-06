@@ -1,5 +1,5 @@
 <?php
-//Aiに送るプロンプトを管理する関数
+//Aiに送るプロンプトを生成する関数
 
 namespace App\Lib\Function;
 

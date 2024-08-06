@@ -16,11 +16,13 @@ return new class extends Migration
                 //テーブルが存在しない場合のみ実行
 
                 $table->id();
+                $table->unsignedBigInteger('user_id');
                 $table->unsignedBigInteger('problem_id');
                 //1~5の星をつける
-                $table->integer("num_star");
+                $table->integer("num_star")->default(0);
                 $table->timestamps();
-                $table->foreign('problem_id')->references('id')->on('Problems');
+                $table->foreign('problem_id')->references('id')->on('problems');
+                $table->foreign('user_id')->references('id')->on('users');
             });
         }
     }
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('stars');
     }
 };

@@ -27,8 +27,8 @@ Route::get('/gpt', [gptController::class, 'returnAndSaveGptRes']);
 //問題の生成と保存
 Route::post('/geminiGenerate', [geminiController::class, 'store']);
 
-//レビュー（星）の保存
-Route::post("/reviewRegister", [reviewController::class, 'register']);
+//レビュー（星）の変更と新規登録
+Route::put("/reviewUpdate", [reviewController::class, 'update']);
 
 //問題一覧ページに表示する問題データを取得
 Route::get("/allProblems", [dbOperateController::class, 'fetchAllProblems']);

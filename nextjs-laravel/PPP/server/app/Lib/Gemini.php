@@ -38,7 +38,7 @@ class Gemini extends Ai
                 //プロンプトを取得
                 ["problemPrompt" => $problemPrompt, "hintPrompt" => $hintPrompt, "answerPrompt" => $answerPrompt] = generatePrompt($this->programmingLang, $this->level);
 
-                // 問題文 ヒント 回答を送信
+                // 問題文 ヒント 回答を生成してもらう
                 $problem = $chat->sendMessage(new TextPart($problemPrompt));
                 $hint = $chat->sendMessage(new TextPart($hintPrompt));
                 $answer = $chat->sendMessage(new TextPart($answerPrompt));

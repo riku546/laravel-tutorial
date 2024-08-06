@@ -11,5 +11,7 @@ class stars extends Model
 
     protected $fillable = [
         "num_star",
+        "problem_id",
+        "user_id",
     ];
 }
