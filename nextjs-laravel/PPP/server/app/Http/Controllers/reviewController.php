@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class reviewController extends Controller
 {
+    //ユーザーからリクエストを受け取り、れビュー（星）の新規登録または更新を行う
     public function processRequest(Request $request): JsonResponse
     {
         //リクエストからデータを取得
@@ -24,6 +25,22 @@ class reviewController extends Controller
         }
 
         return response()->json(["message" => "success"]);
+    }
+
+    public function deleteReview(Request $request): JsonResponse
+    {
+        try {
+
+            $problemId = $request->problemId;
+            $userId = $request->userId;
+
+            $review = new Stars();
+            $review->where('user_id', $userId)->where('problem_id', $problemId)->delete();
+
+            return response()->json(["message" => "success"]);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     //ユーザーが特定の問題をすでにレビューしているかどうかを確認

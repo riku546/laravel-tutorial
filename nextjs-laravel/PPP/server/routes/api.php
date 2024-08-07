@@ -30,6 +30,9 @@ Route::post('/geminiGenerate', [geminiController::class, 'store']);
 //レビュー（星）の新規登録と更新
 Route::post("/review", [reviewController::class, 'processRequest']);
 
+//レビュー（星）の削除
+Route::delete("/deleteReview", [reviewController::class, 'deleteReview']);
+
 //問題一覧ページに表示する問題データを取得
 Route::get("/allProblems", [dbOperateController::class, 'fetchAllProblems']);
 
