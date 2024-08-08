@@ -14,10 +14,12 @@ const useHome = () => {
 
     const verifyLoginAndFetch = async () => {
         //ユーザーがログインしているかを確認
-        checkUserLogined()
+        //ログインしていない場合は、アラートが出る。
+        const { isAuth } = await checkUserLogined()
+        isAuth ? '' : alert('ログインしてください')
 
         //問題の生成をする
-        const problem = requestProblem(level, programmingLang)
+        const problem = await requestProblem(level, programmingLang)
         setProblemInfo(problem)
     }
 

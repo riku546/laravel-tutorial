@@ -2,7 +2,6 @@
 
 import Nav from '@/components/selfMadeComponents/Nav'
 import useHome from '@/hooks/useHome'
-import axios from '@/lib/axios'
 import {
     Button,
     FormControl,
@@ -11,7 +10,6 @@ import {
     Radio,
     RadioGroup,
 } from '@mui/material'
-import { useEffect } from 'react'
 
 const Home = () => {
     const {
