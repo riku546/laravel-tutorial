@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class reviewController extends Controller
 {
-    //ユーザーからリクエストを受け取り、れビュー（星）の新規登録または更新を行う
+    //ユーザーからリクエストを受け取り、レビュー（星）の新規登録または更新を行う
     public function processRequest(Request $request): JsonResponse
     {
         //リクエストからデータを取得
