@@ -23,7 +23,17 @@ const page = () => {
         }
     }, [])
     // const { allProblems } = useEvaluate
-    return <div>a</div>
+    return (
+        <div>
+            {/* {allProblems.map(problemInfo => {
+                <div>{problemInfo.id}</div>
+            })} */}
+            {allProblems.map(problemInfo => (
+                <div key={problemInfo.id}>{problemInfo.problem}</div>
+            ))}
+            <p>a</p>
+        </div>
+    )
 }
 
 export default page
