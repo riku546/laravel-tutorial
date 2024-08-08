@@ -11,7 +11,6 @@ use App\Lib\abstractClass\Ai;
 use function App\Lib\Function\generatePrompt;
 use GeminiAPI\Client;
 use GeminiAPI\Resources\Parts\TextPart;
-use Illuminate\Support\Facades\Cache;
 
 class Gemini extends Ai
 {
@@ -30,30 +29,27 @@ class Gemini extends Ai
     {
 
         try {
-            $res = Cache::remember('swift', 3600, function () {
-                //geminiとの通信
-                $client = new Client(env('GEMINI_API_KEY'));
-                $chat = $client->geminiPro()->startChat();
 
-                //プロンプトを取得
-                ["problemPrompt" => $problemPrompt, "hintPrompt" => $hintPrompt, "answerPrompt" => $answerPrompt] = generatePrompt($this->programmingLang, $this->level);
+            //geminiとの通信
+            $client = new Client(env('GEMINI_API_KEY'));
+            $chat = $client->geminiPro()->startChat();
 
-                // 問題文 ヒント 回答を生成してもらう
-                $problem = $chat->sendMessage(new TextPart($problemPrompt));
-                $hint = $chat->sendMessage(new TextPart($hintPrompt));
-                $answer = $chat->sendMessage(new TextPart($answerPrompt));
+            //プロンプトを取得
+            ["problemPrompt" => $problemPrompt, "hintPrompt" => $hintPrompt, "answerPrompt" => $answerPrompt] = generatePrompt($this->programmingLang, $this->level);
 
-                //連想配列にしているのは、後にデータベースに格納する際に使いやすいようにするため
-                $response = [
-                    'problem' => $problem->text(),
-                    'hint' => $hint->text(),
-                    'answer' => $answer->text(),
-                ];
+            // 問題文 ヒント 回答を生成してもらう
+            $problem = $chat->sendMessage(new TextPart($problemPrompt));
+            $hint = $chat->sendMessage(new TextPart($hintPrompt));
+            $answer = $chat->sendMessage(new TextPart($answerPrompt));
 
-                return $response;
-            });
+            //連想配列にしているのは、後にデータベースに格納する際に使いやすいようにするため
+            $response = [
+                'problem' => $problem->text(),
+                'hint' => $hint->text(),
+                'answer' => $answer->text(),
+            ];
 
-            return $res;
+            return $response;
 
         } catch (\Throwable $th) {
             return ["error" => $th->getMessage()];
