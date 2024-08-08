@@ -1,19 +1,29 @@
 'use client'
 
 import axios from '@/lib/axios'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const useEvaluate = () => {
-    const allProblems = useEffect(async () => {
+    const [allProblems, setAllProblems] = useState([])
+    const fetchAllProblems = async () => {
         try {
-            const backEndUrl = env('NEXT_PUBLIC_BACKEND_URL')
-            const allProblems = await axios.get(backEndUrl)
-            return allProblems
+            const allProblems = await axios.get(
+                'http://localhost:8000/api/allProblems',
+            )
+            setAllProblems(allProblems.data)
+            console.log(allProblems.data)
         } catch (error) {
-            console.log('error')
+            console.log(error)
+        }
+    }
+    useEffect(() => {
+        fetchAllProblems()
+
+        return () => {
+            setAllProblems([])
         }
     }, [])
-    console.log(allProblems)
+
     return { allProblems }
 }
 
