@@ -2,6 +2,7 @@
 
 import Nav from '@/components/selfMadeComponents/Nav'
 import useHome from '@/hooks/useHome'
+import axios from '@/lib/axios'
 import {
     Button,
     FormControl,
@@ -10,10 +11,16 @@ import {
     Radio,
     RadioGroup,
 } from '@mui/material'
+import { useEffect } from 'react'
 
 const Home = () => {
-    const { problemLevels, setLevel, setProgrammingLang, requestProblem } =
-        useHome()
+    const {
+        problemLevels,
+        setLevel,
+        setProgrammingLang,
+        verifyLoginAndFetch,
+        problemInfo,
+    } = useHome()
 
     return (
         <div>
@@ -46,7 +53,7 @@ const Home = () => {
                 <Button
                     variant="contained"
                     disableElevation
-                    onClick={requestProblem}>
+                    onClick={verifyLoginAndFetch}>
                     問題を生成
                 </Button>
             </div>

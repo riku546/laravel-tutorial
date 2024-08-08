@@ -1,31 +1,32 @@
 'use client'
 
 import axios from '@/lib/axios'
-import React, { useState } from 'react'
+import { checkUserLogined } from '@/lib/checkUserLogined'
+import { requestProblem } from '@/lib/requestProblem'
+import { redirect } from 'next/navigation'
+import React, { useEffect, useState } from 'react'
 
 const useHome = () => {
     const problemLevels = ['初級', '中級', '上級']
     const [level, setLevel] = useState('初級')
     const [programmingLang, setProgrammingLang] = useState('php')
+    const [problemInfo, setProblemInfo] = useState(null)
 
-    const requestProblem = async () => {
-        const requestInfo = { level: level, programmingLang: programmingLang }
-        try {
-            const problemInfo = await axios.post(
-                '/api/generateProblem',
-                requestInfo,
-            )
-            console.log("success")
-        } catch (error) {
-            console.log(error)
-        }
+    const verifyLoginAndFetch = async () => {
+        //ユーザーがログインしているかを確認
+        checkUserLogined()
+
+        //問題の生成をする
+        const problem = requestProblem(level, programmingLang)
+        setProblemInfo(problem)
     }
 
     return {
         problemLevels,
         setLevel,
         setProgrammingLang,
-        requestProblem,
+        verifyLoginAndFetch,
+        problemInfo,
     }
 }
 

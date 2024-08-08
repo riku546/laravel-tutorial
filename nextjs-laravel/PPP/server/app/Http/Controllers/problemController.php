@@ -6,7 +6,7 @@ use App\Models\Problems;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class dbOperateController extends Controller
+class problemController extends Controller
 {
     //問題一覧ページに表示する問題データを取得
     public function fetchAllProblems(): JsonResponse
@@ -14,6 +14,16 @@ class dbOperateController extends Controller
         try {
             $problems = Problems::all();
             return response()->json($problems);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    public function fetchProblem(Request $request): JsonResponse
+    {
+        try {
+            $problem = Problems::find($request->problemId)->get();
+            return response()->json($problem);
         } catch (\Throwable $th) {
             throw $th;
         }
