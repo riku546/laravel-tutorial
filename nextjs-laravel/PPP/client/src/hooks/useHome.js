@@ -11,6 +11,7 @@ const useHome = () => {
     const [level, setLevel] = useState('初級')
     const [programmingLang, setProgrammingLang] = useState('php')
     const [problemInfo, setProblemInfo] = useState(null)
+    const [isLoading, setIsLoading] = useState(false)
 
     const verifyLoginAndFetch = async () => {
         //ユーザーがログインしているかを確認
@@ -18,8 +19,15 @@ const useHome = () => {
         const { isAuth } = await checkUserLogined()
         isAuth ? '' : alert('ログインしてください')
 
+        //問題の生成中はローディングする
+        setIsLoading(true)
+
         //問題の生成をする
         const problem = await requestProblem(level, programmingLang)
+
+        //問題が生成し終えたから、ローディング終了
+        setIsLoading(false)
+
         setProblemInfo(problem)
     }
 
@@ -29,6 +37,7 @@ const useHome = () => {
         setProgrammingLang,
         verifyLoginAndFetch,
         problemInfo,
+        isLoading,
     }
 }
 

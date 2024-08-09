@@ -9,6 +9,7 @@ export const requestProblem = async (level, programmingLang) => {
             '/api/generateProblem',
             requestInfo,
         )
+        console.log(problemInfo)
         return problemInfo
     } catch (error) {
         throw error

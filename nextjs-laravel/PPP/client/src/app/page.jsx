@@ -3,7 +3,9 @@
 import Nav from '@/components/selfMadeComponents/Nav'
 import useHome from '@/hooks/useHome'
 import {
+    Box,
     Button,
+    CircularProgress,
     FormControl,
     FormControlLabel,
     FormLabel,
@@ -18,11 +20,18 @@ const Home = () => {
         setProgrammingLang,
         verifyLoginAndFetch,
         problemInfo,
+        isLoading,
     } = useHome()
 
     return (
         <div>
             <Nav />
+
+            {/* isLoadingがtrueの時は、ローディングアイコンを表示する */}
+            {isLoading && (
+                <CircularProgress style={{ width: '80px', height: '80px' }} />
+            )}
+
             <div>
                 <input
                     type="text"
@@ -48,12 +57,17 @@ const Home = () => {
                         ))}
                     </RadioGroup>
                 </FormControl>
-                <Button
-                    variant="contained"
-                    disableElevation
-                    onClick={verifyLoginAndFetch}>
-                    問題を生成
-                </Button>
+                {/* isLoadingがtrueの時はbuttonを非表示にする */}
+                {isLoading ? (
+                    ''
+                ) : (
+                    <Button
+                        variant="contained"
+                        disableElevation
+                        onClick={verifyLoginAndFetch}>
+                        問題を生成
+                    </Button>
+                )}
             </div>
         </div>
     )
