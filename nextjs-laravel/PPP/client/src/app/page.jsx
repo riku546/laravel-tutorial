@@ -1,9 +1,9 @@
 'use client'
 
+import ProblemDetail from '@/components/selfMadeComponents/ProblemDetail'
 import Nav from '@/components/selfMadeComponents/Nav'
 import useHome from '@/hooks/useHome'
 import {
-    Box,
     Button,
     CircularProgress,
     FormControl,
@@ -19,7 +19,7 @@ const Home = () => {
         setLevel,
         setProgrammingLang,
         verifyLoginAndFetch,
-        problemInfo,
+        problemInfos,
         isLoading,
     } = useHome()
 
@@ -69,6 +69,10 @@ const Home = () => {
                     </Button>
                 )}
             </div>
+            {problemInfos &&
+                problemInfos
+                    .flat()
+                    .map(text => <p key={text}>{text}</p>)}
         </div>
     )
 }
