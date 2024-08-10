@@ -69,10 +69,7 @@ const Home = () => {
                     </Button>
                 )}
             </div>
-            {problemInfos &&
-                problemInfos
-                    .flat()
-                    .map(text => <p key={text}>{text}</p>)}
+            {problemInfos && <ProblemDetail problemInfos={problemInfos} />}
         </div>
     )
 }

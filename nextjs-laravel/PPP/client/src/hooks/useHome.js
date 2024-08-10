@@ -1,17 +1,15 @@
 'use client'
 
-import axios from '@/lib/axios'
 import { checkUserLogined } from '@/lib/checkUserLogined'
-import { convertToBr, splitProblemInfo } from '@/lib/splitProblemInfo'
+import { splitProblemInfo } from '@/lib/splitProblemInfo'
 import { requestProblem } from '@/lib/requestProblem'
-import { redirect } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const useHome = () => {
     const problemLevels = ['初級', '中級', '上級']
     const [level, setLevel] = useState('初級')
     const [programmingLang, setProgrammingLang] = useState('php')
-    const [problemInfos, setProblemInfos] = useState([])
+    const [problemInfos, setProblemInfos] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
 
     const verifyLoginAndFetch = async () => {
@@ -36,6 +34,7 @@ const useHome = () => {
         console.log(problem)
 
         console.log(splitProblemInfo(problem.data))
+        setProblemInfos(splitProblemInfo(problem.data))
     }
 
     return {
