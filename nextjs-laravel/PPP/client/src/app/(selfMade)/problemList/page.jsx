@@ -8,7 +8,13 @@ const page = () => {
     return (
         <div>
             {allProblems.map(problemInfo => (
-                <div key={problemInfo.id}>{problemInfo.problem}</div>
+                <div key={problemInfo.id}>
+                    <ul>
+                        <li>問題番号：{problemInfo.id}</li>
+                        <li>プログラミング言語：{problemInfo.programmingLang}</li>
+                        <li>レベル：{problemInfo.level}</li>
+                    </ul>
+                </div>
             ))}
         </div>
     )
