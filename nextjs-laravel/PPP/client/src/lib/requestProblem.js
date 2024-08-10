@@ -10,6 +10,7 @@ export const requestProblem = async (level, programmingLang) => {
             requestInfo,
         )
         console.log(problemInfo)
+
         return problemInfo
     } catch (error) {
         throw error
