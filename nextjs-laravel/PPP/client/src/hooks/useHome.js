@@ -2,7 +2,7 @@
 
 import axios from '@/lib/axios'
 import { checkUserLogined } from '@/lib/checkUserLogined'
-import { convertToBr } from '@/lib/convertToBr'
+import { convertToBr, splitProblemInfo } from '@/lib/splitProblemInfo'
 import { requestProblem } from '@/lib/requestProblem'
 import { redirect } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
@@ -35,6 +35,7 @@ const useHome = () => {
         setIsLoading(false)
         console.log(problem)
 
+        console.log(splitProblemInfo(problem.data))
     }
 
     return {
