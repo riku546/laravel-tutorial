@@ -1,4 +1,4 @@
-//生成された問題とヒントと答えの"\n"を"<br>"に変換する
+//生成された問題とヒントと答えの"\n
 
 export const convertToBr = problemInfos => {
     const arrayProblemInfos = Object.values(problemInfos)

@@ -11,7 +11,7 @@ const useHome = () => {
     const problemLevels = ['初級', '中級', '上級']
     const [level, setLevel] = useState('初級')
     const [programmingLang, setProgrammingLang] = useState('php')
-    const [problemInfos, setProblemInfos] = useState(null)
+    const [problemInfos, setProblemInfos] = useState([])
     const [isLoading, setIsLoading] = useState(false)
 
     const verifyLoginAndFetch = async () => {
@@ -34,9 +34,7 @@ const useHome = () => {
         //問題が生成し終えたから、ローディング終了
         setIsLoading(false)
         console.log(problem)
-        const validaProblem = convertToBr(problem.data)
-        console.log(validaProblem)
-        setProblemInfos(validaProblem)
+
     }
 
     return {
