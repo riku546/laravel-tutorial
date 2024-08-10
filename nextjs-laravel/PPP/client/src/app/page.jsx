@@ -69,6 +69,7 @@ const Home = () => {
                     </Button>
                 )}
             </div>
+            {/* 問題が生成されたときに表示される */}
             {problemInfos && <ProblemDetail problemInfos={problemInfos} />}
         </div>
     )

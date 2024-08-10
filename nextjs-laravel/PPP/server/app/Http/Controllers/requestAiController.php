@@ -2,22 +2,21 @@
 
 namespace App\Http\Controllers;
 
-require_once base_path("app/Lib/Function/saveProblems.php");
-
+use App\Http\Controllers\problemController;
 use App\Lib\Gemini;
-use function App\Lib\Function\saveProblems;
 use Illuminate\Http\Request;
 
-class geminiController extends Controller
+class requestAiController extends Controller
 {
-
+    //問題の生成とDBへの保存
     public function store(Request $request)
     {
 
         $gemini = new Gemini($request);
         $res = $gemini->getAIGeneratedText();
 
-        saveProblems($res, $request);
+        $problemController = new problemController();
+        $problemController->saveProblems($res, $request);
 
         return response()->json($res);
 

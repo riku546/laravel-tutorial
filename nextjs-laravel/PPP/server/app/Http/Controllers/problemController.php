@@ -18,12 +18,32 @@ class problemController extends Controller
             throw $th;
         }
     }
-
+    //問題単体を取得
     public function fetchProblem(Request $request): JsonResponse
     {
         try {
             $problem = Problems::find($request->problemId)->get();
             return response()->json($problem);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    //生成した問題をDBに保存
+    //引数 $resはAiが生成した物  $requestはフロントから渡されたデータ
+    public function saveProblems(array $res, object $request): void
+    {
+        try {
+            $problem = new Problems();
+            //postmanするときは、Auth::id()使えない
+            // $problem->user_id = Auth::id();
+            $problem->user_id = 1;
+            $problem->problem = $res['problem'];
+            $problem->hint = $res['hint'];
+            $problem->answer = $res['answer'];
+            $problem->level = $request['level'];
+            $problem->programmingLang = $request['programmingLang'];
+            $problem->save();
         } catch (\Throwable $th) {
             throw $th;
         }
