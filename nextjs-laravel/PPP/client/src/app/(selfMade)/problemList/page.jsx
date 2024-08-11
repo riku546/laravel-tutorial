@@ -7,15 +7,16 @@ const page = () => {
     const { allProblems } = useProblemList()
     return (
         <div>
-            {allProblems.map(problemInfo => (
-                <div key={problemInfo.id}>
-                    <ul>
-                        <li>問題番号：{problemInfo.id}</li>
-                        <li>プログラミング言語：{problemInfo.programmingLang}</li>
-                        <li>レベル：{problemInfo.level}</li>
-                    </ul>
-                </div>
-            ))}
+            <div>
+                {' '}
+                {allProblems.map(problemInfo => (
+                    <div key={problemInfo.id}>
+                        <p>問題番号：{problemInfo.id}</p>
+                        <p>プログラミング言語：{problemInfo.programmingLang}</p>
+                        <p>レベル：{problemInfo.level}</p>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }

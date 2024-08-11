@@ -1,4 +1,5 @@
 import Header from '@/app/(app)/Header'
+import Link from 'next/link'
 
 export const metadata = {
     title: 'Laravel - Dashboard',
@@ -16,6 +17,7 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
+                <Link href="/">ホーム画面</Link>
             </div>
         </>
     )

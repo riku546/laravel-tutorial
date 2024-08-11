@@ -1,6 +1,6 @@
 'use client'
 
-import ProblemDetail from '@/components/selfMadeComponents/ProblemDetail'
+import DisplayProblemInfo from '@/components/selfMadeComponents/DisplayProblemInfo'
 import Nav from '@/components/selfMadeComponents/Nav'
 import useHome from '@/hooks/useHome'
 import {
@@ -70,7 +70,7 @@ const Home = () => {
                 )}
             </div>
             {/* 問題が生成されたときに表示される */}
-            {problemInfos && <ProblemDetail problemInfos={problemInfos} />}
+            {problemInfos && <DisplayProblemInfo problemInfos={problemInfos} />}
         </div>
     )
 }
