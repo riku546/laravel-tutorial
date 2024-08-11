@@ -11,7 +11,6 @@ const useProblemList = () => {
         const fetchAllProblems = async () => {
             try {
                 const allProblems = await axios.get('/api/allProblems')
-                console.log(allProblems.data)
                 setAllProblems(allProblems.data)
             } catch (error) {
                 throw error

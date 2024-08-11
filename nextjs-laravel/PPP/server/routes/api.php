@@ -42,7 +42,7 @@ Route::get("/problem", [problemController::class, 'fetchProblem']);
 //ここから下はユーザごとのルート
 //********************************************************************************************************************
 
-//ユーザーが以前に作成した問題を取得
+//ユーザーが以前に解いたした問題を取得
 Route::get("/personalProblems", [problemController::class, 'fetchPersonalProblems']);
 
 //ユーザーが以前に作成した問題を削除

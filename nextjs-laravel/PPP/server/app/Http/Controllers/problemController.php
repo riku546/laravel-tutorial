@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Problems;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class problemController extends Controller
 {
@@ -49,7 +50,7 @@ class problemController extends Controller
         }
     }
 
-    //ゆーざーが以前に生成した問題を取得
+    //ゆーざーが以前に解いた問題を取得
     public function fetchPersonalProblems(): JsonResponse
     {
         try {
@@ -57,6 +58,7 @@ class problemController extends Controller
             // $userId = Auth::id();
             $userId = 2;
             $problems = problems::where('user_id', $userId)->get();
+            Log::debug($problems);
             return response()->json($problems);
         } catch (\Throwable $th) {
             throw $th;
