@@ -11,7 +11,7 @@ const usePracticed = () => {
         const fetchPracticedProblems = async () => {
             try {
                 const res = await axios.get('api/personalProblems')
-                setPracticedProblem(res)
+                setPracticedProblem(res.data)
             } catch (error) {
                 console.log(error)
             }

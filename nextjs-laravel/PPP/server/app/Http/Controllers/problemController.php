@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Problems;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class problemController extends Controller
@@ -55,8 +56,9 @@ class problemController extends Controller
     {
         try {
             //ログインしているゆーざーのIDを取得
-            // $userId = Auth::id();
-            $userId = 2;
+            $userId = Auth::id();
+            Log::debug($userId);
+            // $userId = 1;
             $problems = problems::where('user_id', $userId)->get();
             Log::debug($problems);
             return response()->json($problems);
