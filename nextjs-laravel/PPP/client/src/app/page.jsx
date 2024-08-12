@@ -2,6 +2,7 @@
 
 import DisplayProblemInfo from '@/components/selfMadeComponents/DisplayProblemInfo'
 import Nav from '@/components/selfMadeComponents/Nav'
+import ReviewDialog from '@/components/selfMadeComponents/ReviewDialog'
 import useHome from '@/hooks/useHome'
 import {
     Button,
@@ -71,6 +72,7 @@ const Home = () => {
             </div>
             {/* 問題が生成されたときに表示される */}
             {problemInfos && <DisplayProblemInfo problemInfos={problemInfos} />}
+            <ReviewDialog />
         </div>
     )
 }
