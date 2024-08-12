@@ -6,7 +6,6 @@ import React from 'react'
 
 const page = () => {
     const { practicedProblems } = usePracticed()
-    console.log(practicedProblems)
     return (
         <>
             {practicedProblems && (

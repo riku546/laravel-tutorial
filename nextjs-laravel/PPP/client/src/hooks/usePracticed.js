@@ -13,7 +13,7 @@ const usePracticed = () => {
                 const res = await axios.get('api/personalProblems')
                 setPracticedProblem(res.data)
             } catch (error) {
-                console.log(error)
+                throw error
             }
         }
 

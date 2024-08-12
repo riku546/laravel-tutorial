@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\problems;
 use App\Models\Stars;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -52,6 +53,31 @@ class reviewController extends Controller
             return false;
         } else {
             return true;
+        }
+    }
+
+    //starsテーブルから特定の問題のレビューの平均値を計算する
+    //また 特定の問題に対するレビューの数も取得
+    private function calcAvg(int $problemId): array
+    {
+        try {
+            $review = new Stars();
+            $numReview = $review->where('problem_id', $problemId)->count();
+            $avg = $review->where('problem_id', $problemId)->avg('num_star');
+            return ['numReview' => $numReview, 'avgReview' => $avg];
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    //calcAvg()で取得したデータをproblemsテーブルに保存
+    private function saveAvgReview(int $problemId, array $reviewData): void
+    {
+        try {
+            $problem = new problems();
+            $problem->where('id', $problemId)->update(['review_count' => $reviewData['numReview'], 'stars' => $reviewData['avgReview']]);
+        } catch (\Throwable $th) {
+            throw $th;
         }
     }
 

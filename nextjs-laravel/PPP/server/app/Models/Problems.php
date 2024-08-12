@@ -15,5 +15,7 @@ class problems extends Model
         "answer",
         "level",
         "programmingLang",
+        "stars",
+        "review_count",
     ];
 }

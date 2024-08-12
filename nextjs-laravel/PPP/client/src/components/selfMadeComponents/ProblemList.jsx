@@ -1,3 +1,4 @@
+import { Rating } from '@mui/material'
 import React from 'react'
 
 const ProblemList = ({ problemInfos }) => {
@@ -8,7 +9,7 @@ const ProblemList = ({ problemInfos }) => {
                     <p>問題番号：{problemInfo.id}</p>
                     <p>プログラミング言語：{problemInfo.programmingLang}</p>
                     <p>レベル：{problemInfo.level}</p>
-                    <p>評価</p>
+                    <Rating name="read-only" value={2} readOnly  />
                 </div>
             ))}
         </div>
