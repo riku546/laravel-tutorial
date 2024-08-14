@@ -4,20 +4,12 @@ import React, { useState } from 'react'
 import Dialog from '@mui/material/Dialog'
 import DialogActions from '@mui/material/DialogActions'
 import DialogContent from '@mui/material/DialogContent'
-import DialogContentText from '@mui/material/DialogContentText'
-import DialogTitle from '@mui/material/DialogTitle'
+
 import { Button, Rating } from '@mui/material'
+import useReview from '@/hooks/useReview'
 
 const ReviewDialog = () => {
-    const [value, setValue] = useState(2)
-    const [open, setOpen] = useState(true)
-    const handleClose = () => {
-        setOpen(false)
-    }
-
-    const handleClickOpen = () => {
-        setOpen(true)
-    }
+    const { value, setValue, open, handleClickOpen, handleClose } = useReview()
 
     return (
         <>

@@ -7,7 +7,7 @@ import useDisplayProblemInfo from '@/hooks/useDisplayProblemInfo'
 //画面に生成された問題とヒントと答えを表示するコンポーネント
 const DisplayProblemInfo = ({ problemInfos }) => {
     const { isOpenAnswer, setIsOpenAnswer, isOpenHint, setIsOpenHint } =
-        useDisplayProblemInfo()
+        useDisplayProblemInfo
 
     return (
         <div>

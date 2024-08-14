@@ -1,4 +1,6 @@
-import  { useState } from 'react'
+'use client'
+
+import { useState } from 'react'
 
 const useDisplayProblemInfo = () => {
     const [isOpenHint, setIsOpenHint] = useState(false)
