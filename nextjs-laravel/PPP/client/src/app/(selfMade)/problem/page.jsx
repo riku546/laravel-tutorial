@@ -6,15 +6,15 @@ import useProblem from '@/hooks/useProblem'
 import React from 'react'
 
 const page = () => {
-    const {} = useProblem()
+    const { problemInfo, reviewData } = useProblem()
     return (
-        <DisplayProblemInfo
-            problemInfos={{
-                problem: ["f" , "a"],
-                hint: 'php hint',
-                answer: 'php answer',
-            }}
-        />
+        <div>
+            <div>
+                <p>{reviewData.stars}</p>
+                <p>{reviewData.reviewCount}</p>
+            </div>
+            <DisplayProblemInfo problemInfos={problemInfo} />
+        </div>
     )
 }
 

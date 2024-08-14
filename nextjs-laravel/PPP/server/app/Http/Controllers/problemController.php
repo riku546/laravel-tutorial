@@ -20,13 +20,13 @@ class problemController extends Controller
         }
     }
     //問題単体の情報を取得
+    //引数はURLパラメータで渡される問題ID
     public function fetchProblem(int $problemId): JsonResponse
     {
         try {
-            $problem = Problems::find()->first();
+            $problem = Problems::where('id', $problemId)->first();
             return response()->json($problem);
         } catch (\Throwable $th) {
-            // Log::debug($th);
             throw $th;
         }
     }
