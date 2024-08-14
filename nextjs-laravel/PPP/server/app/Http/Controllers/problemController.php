@@ -19,13 +19,14 @@ class problemController extends Controller
             throw $th;
         }
     }
-    //問題単体を取得
-    public function fetchProblem(Request $request): JsonResponse
+    //問題単体の情報を取得
+    public function fetchProblem(int $problemId): JsonResponse
     {
         try {
-            $problem = Problems::find($request->problemId)->get();
+            $problem = Problems::find()->first();
             return response()->json($problem);
         } catch (\Throwable $th) {
+            // Log::debug($th);
             throw $th;
         }
     }

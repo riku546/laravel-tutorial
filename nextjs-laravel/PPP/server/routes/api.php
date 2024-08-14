@@ -37,7 +37,7 @@ Route::delete("/deleteReview", [reviewController::class, 'deleteReview']);
 Route::get("/allProblems", [problemController::class, 'fetchAllProblems']);
 
 //特定の問題のデータを取得
-Route::get("/problem", [problemController::class, 'fetchProblem']);
+Route::get("/problem/{problemId}", [problemController::class, 'fetchProblem']);
 
 //ここから下はユーザごとのルート
 //********************************************************************************************************************
