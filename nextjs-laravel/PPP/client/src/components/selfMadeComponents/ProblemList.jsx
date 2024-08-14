@@ -1,7 +1,10 @@
+import useRedirect from '@/hooks/useRedirect'
 import { Rating } from '@mui/material'
 import React from 'react'
 
-const ProblemList = ({ problemInfos, redirectProblemPage }) => {
+const ProblemList = ({ problemInfos }) => {
+    const { redirectProblemPage } = useRedirect()
+
     return (
         <div style={{ display: 'flex', gap: '30px', flexDirection: 'column' }}>
             {problemInfos.map(problemInfo => (

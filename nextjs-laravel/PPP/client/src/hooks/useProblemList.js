@@ -6,7 +6,6 @@ import React, { useEffect, useState } from 'react'
 
 const useProblemList = () => {
     const [allProblems, setAllProblems] = useState([])
-    const router = useRouter()
 
     useEffect(() => {
         //laravelのapiを叩いて、すべての問題を取得
@@ -26,12 +25,7 @@ const useProblemList = () => {
         }
     }, [])
 
-    //問題の詳細ページへのリダイレクトする関数
-    const redirectProblemPage = problemId => {
-        router.push(`/problem?problemId=${problemId}`)
-    }
-
-    return { allProblems, redirectProblemPage }
+    return { allProblems }
 }
 
 export default useProblemList
