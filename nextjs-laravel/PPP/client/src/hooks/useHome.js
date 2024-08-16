@@ -14,7 +14,6 @@ const useHome = () => {
 
     const verifyLoginAndFetch = async () => {
         //ユーザーがログインしているかを確認
-        //ログインしていない場合は、アラートが出る。
         const { isAuth } = await checkUserLogined()
 
         //ログインしていない場合の処理

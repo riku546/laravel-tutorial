@@ -9,8 +9,14 @@ import { Button, Rating } from '@mui/material'
 import useReview from '@/hooks/useReview'
 
 const ReviewDialog = ({ problemId }) => {
-    const { value, setValue, open, handleClickOpen, handleClose, sendReview } =
-        useReview()
+    const {
+        numStar,
+        setNumStar,
+        open,
+        handleClickOpen,
+        handleClose,
+        sendReview,
+    } = useReview()
 
     return (
         <>
@@ -28,9 +34,9 @@ const ReviewDialog = ({ problemId }) => {
                 <DialogContent>
                     <Rating
                         name="simple-controlled"
-                        value={value}
+                        value={numStar}
                         onChange={(event, newValue) => {
-                            setValue(newValue)
+                            setNumStar(newValue)
                         }}
                     />
                 </DialogContent>

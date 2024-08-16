@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\problems;
+use App\Models\Problems;
 use App\Models\Stars;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -21,10 +21,12 @@ class reviewController extends Controller
         //ユーザーが既にレビューしているなら、レビューを更新。そうでないなら新規登録
         if ($this->checkAlreadyReviewed($userId, $problemId)) {
             $this->updateReview($userId, $problemId, $numStar);
-
         } else {
             $this->registerReview($userId, $problemId, $numStar);
         }
+
+        //レビューの星の平均を出して、problemsテーブルに保存
+        $this->processReview($problemId);
 
         return response()->json(["message" => "success"]);
     }
@@ -57,6 +59,12 @@ class reviewController extends Controller
         }
     }
 
+    private function processReview(int $problemId)
+    {
+        $reviewInfo = $this->calcAvg($problemId);
+        $this->saveAvgReview($problemId, $reviewInfo);
+    }
+
     //starsテーブルから特定の問題のレビューの平均値を計算する
     //また 特定の問題に対するレビューの数も取得
     private function calcAvg(int $problemId): array
@@ -75,7 +83,7 @@ class reviewController extends Controller
     private function saveAvgReview(int $problemId, array $reviewData): void
     {
         try {
-            $problem = new problems();
+            $problem = new Problems();
             $problem->where('id', $problemId)->update(['review_count' => $reviewData['numReview'], 'stars' => $reviewData['avgReview']]);
         } catch (\Throwable $th) {
             throw $th;

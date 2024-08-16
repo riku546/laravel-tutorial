@@ -72,7 +72,6 @@ const Home = () => {
             </div>
             {/* 問題が生成されたときに表示される */}
             {problemInfos && <DisplayProblemInfo problemInfos={problemInfos} />}
-            <ReviewDialog />
         </div>
     )
 }
