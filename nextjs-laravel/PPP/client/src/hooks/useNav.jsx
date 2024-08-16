@@ -14,7 +14,7 @@ const useNav = () => {
             //ログインしていた場合はユーザー名をセット
             //していない場合はログイン画面に遷移できるようにする
             setuserNameOrLogin(
-                isAuth ? data.name : <Link href="/login">ログイン</Link>,
+                isAuth ? <Link href="/dashboard">{data.name}</Link> : <Link href="/register">sign up</Link>,
             )
         }
 

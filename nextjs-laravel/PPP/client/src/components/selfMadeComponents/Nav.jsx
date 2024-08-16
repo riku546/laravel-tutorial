@@ -2,17 +2,24 @@ import React from 'react'
 import styles from './css/Nav.css'
 import { checkUserLogined } from '@/lib/checkUserLogined'
 import useNav from '@/hooks/useNav'
+import Link from 'next/link'
 
 const Nav = () => {
     const { userNameOrLogin } = useNav()
 
     return (
-        <ul className={styles.list}>
-            <li>ホーム</li>
-            <li>履歴</li>
-            <li>レビュー</li>
-            {userNameOrLogin}
-        </ul>
+        <div className={styles.list}>
+            <div>
+                <Link href="/">ホーム</Link>
+            </div>
+            <div>
+                <Link href="/practicedProblem">生成履歴</Link>
+            </div>
+            <div>
+                <Link href="/problemList">問題一覧</Link>
+            </div>
+            <p>{userNameOrLogin}</p>
+        </div>
     )
 }
 

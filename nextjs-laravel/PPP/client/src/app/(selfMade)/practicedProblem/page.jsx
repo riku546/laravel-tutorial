@@ -6,9 +6,12 @@ import React from 'react'
 
 const page = () => {
     const { practicedProblems } = usePracticed()
+
     return (
         <>
-            {practicedProblems && (
+            {practicedProblems.length === 0 ? (
+                <div>なし</div>
+            ) : (
                 <ProblemList problemInfos={practicedProblems} />
             )}
         </>

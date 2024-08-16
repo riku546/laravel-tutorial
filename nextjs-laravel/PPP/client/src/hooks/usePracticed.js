@@ -4,7 +4,7 @@ import axios from '@/lib/axios'
 import React, { useEffect, useState } from 'react'
 
 const usePracticed = () => {
-    const [practicedProblems, setPracticedProblem] = useState(null)
+    const [practicedProblems, setPracticedProblem] = useState([])
 
     //ユーザーが解いたとこがある問題を取得
     useEffect(() => {
