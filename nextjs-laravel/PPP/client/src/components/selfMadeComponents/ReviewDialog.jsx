@@ -8,8 +8,9 @@ import DialogContent from '@mui/material/DialogContent'
 import { Button, Rating } from '@mui/material'
 import useReview from '@/hooks/useReview'
 
-const ReviewDialog = () => {
-    const { value, setValue, open, handleClickOpen, handleClose } = useReview()
+const ReviewDialog = ({ problemId }) => {
+    const { value, setValue, open, handleClickOpen, handleClose, sendReview } =
+        useReview()
 
     return (
         <>
@@ -35,7 +36,7 @@ const ReviewDialog = () => {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>戻る</Button>
-                    <Button onClick={handleClose} autoFocus>
+                    <Button onClick={() => sendReview(problemId)} autoFocus>
                         送信
                     </Button>
                 </DialogActions>

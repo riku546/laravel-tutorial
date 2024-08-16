@@ -6,6 +6,7 @@ use App\Models\problems;
 use App\Models\Stars;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class reviewController extends Controller
 {
@@ -15,7 +16,7 @@ class reviewController extends Controller
         //リクエストからデータを取得
         $numStar = $request->numStar;
         $problemId = $request->problemId;
-        $userId = $request->userId;
+        $userId = Auth::id();
 
         //ユーザーが既にレビューしているなら、レビューを更新。そうでないなら新規登録
         if ($this->checkAlreadyReviewed($userId, $problemId)) {

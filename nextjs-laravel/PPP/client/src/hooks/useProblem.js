@@ -13,10 +13,12 @@ const useProblem = () => {
         answer: '',
     })
     const [reviewData, setReviewData] = useState({ stars: 0, reviewCount: 0 })
+    const [problemId, setProblemId] = useState(null)
     const searchParm = useSearchParams()
     useEffect(() => {
         //URLに含まれるproblemパラメーターを取得
         const problemId = searchParm.get('problemId')
+        setProblemId(problemId)
 
         //問題詳細ページに表示する問題の情報を取得
         const fetchProblemInfo = async problemId => {
@@ -45,7 +47,7 @@ const useProblem = () => {
         fetchProblemInfo(problemId)
     }, [])
 
-    return { problemInfo, reviewData }
+    return { problemInfo, reviewData, problemId }
 }
 
 export default useProblem
