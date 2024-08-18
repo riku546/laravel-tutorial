@@ -3,6 +3,7 @@
 import DisplayProblemInfo from '@/components/selfMadeComponents/DisplayProblemInfo'
 import Nav from '@/components/selfMadeComponents/Nav'
 import './page.css'
+import "./pageLayout.css"
 import useHome from '@/hooks/useHome'
 import {
     Button,
@@ -27,11 +28,11 @@ const Home = () => {
 
     return (
         <div className="container">
-            <div className="nav">
+            <nav className="nav">
                 <Nav />
-            </div>
+            </nav>
 
-            <div className="main-area">
+            <main className="main-area">
                 <h1 className="title">Welcome to PPP </h1>
 
                 <div className="form-area">
@@ -77,7 +78,7 @@ const Home = () => {
                         <DisplayProblemInfo problemInfos={problemInfos} />
                     )}
                 </div>
-            </div>
+            </main>
         </div>
     )
 }
