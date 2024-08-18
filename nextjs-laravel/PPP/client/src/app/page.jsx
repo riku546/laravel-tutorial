@@ -32,6 +32,8 @@ const Home = () => {
             <nav className="nav">
                 <Nav />
             </nav>
+
+            {/* スマホのときに表示される */}
             <div className="hamburger-menu">
                 <HamburgerMenu />
             </div>

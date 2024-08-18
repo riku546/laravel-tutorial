@@ -8,6 +8,7 @@ import '@/app/pageLayout.css'
 import styles from './page.module.css'
 import React from 'react'
 import { Rating } from '@mui/material'
+import HamburgerMenu from '@/components/selfMadeComponents/HamburgerMenu'
 
 const page = () => {
     const { problemInfo, reviewData, problemId } = useProblem()
@@ -16,6 +17,12 @@ const page = () => {
             <nav className="nav">
                 <Nav />
             </nav>
+
+            {/* スマホのときに表示される */}
+            <div className="hamburger-menu">
+                <HamburgerMenu />
+            </div>
+
             <main className="main-area">
                 <div className={styles.ratingArea}>
                     <div className={styles.expressRate}>
