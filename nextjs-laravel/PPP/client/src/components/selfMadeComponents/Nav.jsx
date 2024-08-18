@@ -9,13 +9,13 @@ const Nav = () => {
 
     return (
         <div className={styles.list}>
-            <div>
+            <div className="list-text">
                 <Link href="/">ホーム</Link>
             </div>
-            <div>
+            <div className="list-text">
                 <Link href="/practicedProblem">生成履歴</Link>
             </div>
-            <div>
+            <div className="list-text">
                 <Link href="/problemList">問題一覧</Link>
             </div>
             <p>{userNameOrLogin}</p>
