@@ -1,15 +1,11 @@
 'use client'
 
-import Nav from '@/components/selfMadeComponents/Nav'
-import ProblemList from '@/components/selfMadeComponents/ProblemList'
-import useProblemList from '@/hooks/useProblemList'
-import '@/app/pageLayout.css'
-import React from 'react'
 import HamburgerMenu from '@/components/selfMadeComponents/HamburgerMenu'
+import Nav from '@/components/selfMadeComponents/Nav'
+import React from 'react'
+import '@/app/pageLayout.css'
 
 const page = () => {
-    const { allProblems, redirectProblemPage } = useProblemList()
-
     return (
         <div className="container">
             {/* パソコンとタブレットのときに表示される */}
@@ -23,10 +19,13 @@ const page = () => {
             </div>
 
             <main className="main-area">
-                <ProblemList
-                    problemInfos={allProblems}
-                    redirectProblemPage={redirectProblemPage}
-                />
+                <p style={{fontSize:20}}>
+                    <span style={{ fontStyle: 'italic' }}>PPP</span>
+                    とはProgramming Practice Platformの略です。
+                    <br />
+                    文字通り
+                    プログラミング言語を実践的に習得するためのプラットフォームです。
+                </p>
             </main>
         </div>
     )

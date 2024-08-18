@@ -34,6 +34,11 @@ const Nav = () => {
                 <AccountCircleIcon />
                 <p className={styles.navText}>{userNameOrLogin}</p>
             </div>
+            <div className={styles.nav}>
+                <div className={styles.navText}>
+                    <Link href="/aboutPPP"> PPPとは</Link>
+                </div>
+            </div>
         </div>
     )
 }

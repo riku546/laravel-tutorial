@@ -12,6 +12,7 @@ const page = () => {
 
     return (
         <div className="container">
+            {/* パソコンとタブレットのときに表示される */}
             <nav className="nav">
                 <Nav />
             </nav>

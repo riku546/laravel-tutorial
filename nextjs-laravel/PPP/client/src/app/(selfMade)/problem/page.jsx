@@ -14,6 +14,7 @@ const page = () => {
     const { problemInfo, reviewData, problemId } = useProblem()
     return (
         <div className="container">
+            {/* パソコンとタブレットのときに表示される */}
             <nav className="nav">
                 <Nav />
             </nav>
