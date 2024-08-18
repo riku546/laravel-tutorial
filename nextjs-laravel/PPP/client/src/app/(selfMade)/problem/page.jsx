@@ -1,21 +1,39 @@
 'use client'
 
 import DisplayProblemInfo from '@/components/selfMadeComponents/DisplayProblemInfo'
+import Nav from '@/components/selfMadeComponents/Nav'
 import ReviewDialog from '@/components/selfMadeComponents/ReviewDialog'
 import useProblem from '@/hooks/useProblem'
-
+import '@/app/pageLayout.css'
+import styles from './page.module.css'
 import React from 'react'
+import { Rating } from '@mui/material'
 
 const page = () => {
     const { problemInfo, reviewData, problemId } = useProblem()
     return (
-        <div>
-            <div>
-                <p>{reviewData.stars}</p>
-                <p>{reviewData.reviewCount}</p>
-            </div>
-            <DisplayProblemInfo problemInfos={problemInfo} />
-            <ReviewDialog problemId={problemId} />
+        <div className="container">
+            <nav className="nav">
+                <Nav />
+            </nav>
+            <main className="main-area">
+                <div className={styles.ratingArea}>
+                    <div className={styles.expressRate}>
+                        <Rating
+                            name="read-only"
+                            value={reviewData.stars}
+                            readOnly
+                        />
+                        <p>{reviewData.reviewCount}</p>
+                    </div>
+                    <ReviewDialog problemId={problemId} />
+                </div>
+                {/* problemInfoがフェッチされたら表示されるようになっている */}
+                {/* そうしないと、表示が汚くなってしまうから */}
+                {problemInfo && (
+                    <DisplayProblemInfo problemInfos={problemInfo} />
+                )}
+            </main>
         </div>
     )
 }

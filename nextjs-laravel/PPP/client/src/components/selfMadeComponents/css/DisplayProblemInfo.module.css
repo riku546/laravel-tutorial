@@ -12,5 +12,14 @@
     font-size: 25px;
     margin-bottom: 10px;
     font-weight: bold;
-    font-style: italic;
+    cursor: pointer;
+}
+
+
+@media (max-width: 800px) {
+    .container{
+        display: flex;
+        justify-content: center;
+        width: 360px;
+    }
 }

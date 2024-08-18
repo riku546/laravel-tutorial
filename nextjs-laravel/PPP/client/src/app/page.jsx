@@ -3,7 +3,7 @@
 import DisplayProblemInfo from '@/components/selfMadeComponents/DisplayProblemInfo'
 import Nav from '@/components/selfMadeComponents/Nav'
 import './page.css'
-import "./pageLayout.css"
+import './pageLayout.css'
 import useHome from '@/hooks/useHome'
 import {
     Button,
@@ -15,6 +15,7 @@ import {
     RadioGroup,
 } from '@mui/material'
 import LoadingDialog from '@/components/selfMadeComponents/LoadingDialog'
+import HamburgerMenu from '@/components/selfMadeComponents/HamburgerMenu'
 
 const Home = () => {
     const {
@@ -31,6 +32,9 @@ const Home = () => {
             <nav className="nav">
                 <Nav />
             </nav>
+            <div className="hamburger-menu">
+                <HamburgerMenu />
+            </div>
 
             <main className="main-area">
                 <h1 className="title">Welcome to PPP </h1>

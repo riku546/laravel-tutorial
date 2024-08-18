@@ -7,11 +7,7 @@ import { useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
 const useProblem = () => {
-    const [problemInfo, setProblemInfo] = useState({
-        problem: [],
-        hint: '',
-        answer: '',
-    })
+    const [problemInfo, setProblemInfo] = useState()
     const [reviewData, setReviewData] = useState({ stars: 0, reviewCount: 0 })
     const [problemId, setProblemId] = useState(null)
     const searchParm = useSearchParams()
