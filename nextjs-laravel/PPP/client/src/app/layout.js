@@ -1,5 +1,6 @@
 import { Nunito } from 'next/font/google'
 import '@/app/global.css'
+import useHome from '@/hooks/useHome'
 
 const nunitoFont = Nunito({
     subsets: ['latin'],
@@ -15,7 +16,7 @@ const RootLayout = ({ children }) => {
 }
 
 export const metadata = {
-    title: 'Laravel',
+    title: 'PPP',
 }
 
 export default RootLayout

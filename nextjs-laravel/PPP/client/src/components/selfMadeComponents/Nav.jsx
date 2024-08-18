@@ -1,6 +1,5 @@
 import React from 'react'
-import styles from './css/Nav.css'
-import { checkUserLogined } from '@/lib/checkUserLogined'
+import styles from './css/Nav.module.css'
 import useNav from '@/hooks/useNav'
 import Link from 'next/link'
 
@@ -9,13 +8,13 @@ const Nav = () => {
 
     return (
         <div className={styles.list}>
-            <div className="list-text">
+            <div>
                 <Link href="/">ホーム</Link>
             </div>
-            <div className="list-text">
+            <div>
                 <Link href="/practicedProblem">生成履歴</Link>
             </div>
-            <div className="list-text">
+            <div>
                 <Link href="/problemList">問題一覧</Link>
             </div>
             <p>{userNameOrLogin}</p>

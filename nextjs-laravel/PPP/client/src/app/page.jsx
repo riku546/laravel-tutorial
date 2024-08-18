@@ -13,6 +13,7 @@ import {
     Radio,
     RadioGroup,
 } from '@mui/material'
+import LoadingDialog from '@/components/selfMadeComponents/LoadingDialog'
 
 const Home = () => {
     const {
@@ -36,12 +37,8 @@ const Home = () => {
                 <h1 className="title">Welcome to PPP </h1>
 
                 <div className="form-area">
-                    {/* isLoadingがtrueの時は、ローディングアイコンを表示する */}
-                    {isLoading && (
-                        <CircularProgress
-                            style={{ width: '80px', height: '80px' }}
-                        />
-                    )}
+                    {/* isLoadingがtrueの時は、ローディングのダイアログを表示する */}
+                    <LoadingDialog isOpen={isLoading} />
                     <input
                         type="text"
                         placeholder="php"
@@ -69,17 +66,12 @@ const Home = () => {
                             ))}
                         </RadioGroup>
                     </FormControl>
-                    {/* isLoadingがtrueの時はbuttonを非表示にする */}
-                    {isLoading ? (
-                        ''
-                    ) : (
-                        <Button
-                            variant="contained"
-                            disableElevation
-                            onClick={verifyLoginAndFetch}>
-                            問題を生成
-                        </Button>
-                    )}
+                    <Button
+                        variant="contained"
+                        disableElevation
+                        onClick={verifyLoginAndFetch}>
+                        問題を生成
+                    </Button>
                 </div>
                 <div className="problem-area">
                     {/* 問題が生成されたときに表示される */}
