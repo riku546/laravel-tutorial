@@ -31,7 +31,7 @@ const useHome = () => {
         //問題が生成し終えたから、ローディング終了
         setIsLoading(false)
 
-        //生成した問題を表示しやすいようにしている
+        //splitProblemInfo()で生成した問題を表示しやすいようにしている
         setProblemInfos(splitProblemInfo(problem.data))
     }
 

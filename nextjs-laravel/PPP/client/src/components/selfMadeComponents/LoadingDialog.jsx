@@ -15,9 +15,7 @@ const LoadingDialog = ({ isOpen }) => {
                 <DialogTitle id="alert-dialog-title">loading...</DialogTitle>
                 <DialogContent className={styles.dialogContent}>
                     {/* ローディング中に回る */}
-                    <CircularProgress
-                        style={{ width: '80px', height: '80px' }}
-                    />
+                    <CircularProgress />
                 </DialogContent>
             </Dialog>
         </>

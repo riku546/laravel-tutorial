@@ -1,6 +1,6 @@
 .container {
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 2fr 6fr;
     gap: 30px;
     height: 100vh;
 }
@@ -12,16 +12,19 @@
     margin-top: 30px;
 }
 
-.form-area{
+.form-area {
     display: flex;
     gap: 20px;
     flex-direction: column;
 }
 
 .title {
-    font-size: xx-large;
+    font-size: 60px;
     font-style: italic;
     margin-bottom: 30px;
+    font-family: 'Grey Qo', cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .input {
@@ -32,10 +35,8 @@
 
 .nav {
     border-right: 3px solid gray;
-    width: 150px;
     max-width: 200px;
 }
-
 
 .level-radio {
     display: flex;

@@ -28,9 +28,7 @@ const Home = () => {
     return (
         <div className="container">
             <div className="nav">
-                <div style={{ position: 'fixed' }}>
-                    <Nav />
-                </div>
+                <Nav />
             </div>
 
             <div className="main-area">
