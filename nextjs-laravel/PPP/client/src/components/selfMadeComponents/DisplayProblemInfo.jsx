@@ -3,6 +3,7 @@ import Problem from './Problem'
 import Hint from './Hint'
 import Answer from './Answer'
 import useDisplayProblemInfo from '@/hooks/useDisplayProblemInfo'
+import styles from './css/DisplayProblemInfo.module.css'
 
 //画面に生成された問題とヒントと答えを表示するコンポーネント
 const DisplayProblemInfo = ({ problemInfos }) => {
@@ -10,17 +11,25 @@ const DisplayProblemInfo = ({ problemInfos }) => {
         useDisplayProblemInfo()
 
     return (
-        <div>
+        <div className={styles.container}>
             <section>
-                <h3>問題</h3>
+                <p className={styles.label}>問題</p>
                 <Problem problem={problemInfos.problem} />
             </section>
             <section>
-                <h3 onClick={() => setIsOpenHint(prev => !prev)}>ヒント</h3>
+                <p
+                    className={styles.label}
+                    onClick={() => setIsOpenHint(prev => !prev)}>
+                    ヒント
+                </p>
                 {isOpenHint && <Hint hint={problemInfos.hint} />}
             </section>
             <section>
-                <h3 onClick={() => setIsOpenAnswer(prev => !prev)}>答え</h3>
+                <p
+                    className={styles.label}
+                    onClick={() => setIsOpenAnswer(prev => !prev)}>
+                    答え
+                </p>
                 {isOpenAnswer && <Answer answer={problemInfos.answer} />}
             </section>
         </div>

@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 30px;
+    gap: 40px;
     width: 100%;
 }
 
@@ -19,7 +19,9 @@
     width: 80%;
 }
 
-
+.problem:hover {
+    box-shadow: 0px 0px 46px -5px #4b4b4b;
+}
 
 .ratingArea {
     display: flex;
