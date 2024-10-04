@@ -1,7 +1,7 @@
 .container {
-    display: grid;
-    grid-template-columns: 2fr 6fr;
-    gap: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
 }
 
@@ -13,15 +13,22 @@
 }
 
 .nav {
-    border-right: 3px solid gray;
-    max-width: 200px;
-}
-
-.hamburger-menu{
     display: none;
 }
 
-@media (max-width: 700px) {
+
+
+.hamburger-menu {
+    
+    position: fixed;
+    left: 20px;
+    top: 20px;
+}
+.hamburger-menu:hover{
+    cursor: pointer;
+}
+
+/* @media (max-width: 700px) {
     .container {
         display: flex;
         justify-content: center;
@@ -32,12 +39,4 @@
         border: none;
         display: none;
     }
-
-    .hamburger-menu{
-        display: inline;
-        position: fixed;
-        left: 10px;
-        top: 10px;
-        
-    }
-}
+} */
