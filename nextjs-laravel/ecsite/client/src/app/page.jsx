@@ -3,8 +3,45 @@ import ProductCard from '@/components/selfMade/ProductCard'
 import styles from '@/styles/pages/topPage.module.css'
 import './global.css'
 
+
 const Home = () => {
     const product_infos = [
+        {
+            name: 'water',
+            description: 'waterwater',
+        },
+        {
+            name: 'water',
+            description: 'waterwater',
+        },
+        {
+            name: 'water',
+            description: 'waterwater',
+        },
+        {
+            name: 'water',
+            description: 'waterwater',
+        },
+        {
+            name: 'water',
+            description: 'waterwater',
+        },
+        {
+            name: 'water',
+            description: 'waterwater',
+        },
+        {
+            name: 'water',
+            description: 'waterwater',
+        },
+        {
+            name: 'water',
+            description: 'waterwater',
+        },
+        {
+            name: 'water',
+            description: 'waterwater',
+        },
         {
             name: 'water',
             description: 'waterwater',
@@ -32,7 +69,8 @@ const Home = () => {
     ]
     return (
         <div className="container">
-            <Header></Header>
+            <Header />
+
             <main className={styles.mainArea}>
                 {product_infos.map(info => (
                     <ProductCard
