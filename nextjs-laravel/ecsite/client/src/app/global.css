@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.antialiased{
+  display: flex;
+  justify-content: center;
+}
+
+.container{
+  padding: 30px;
+  
+}
+
