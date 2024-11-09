@@ -3,7 +3,6 @@ import ProductCard from '@/components/selfMade/ProductCard'
 import styles from '@/styles/pages/topPage.module.css'
 import './global.css'
 
-
 const Home = () => {
     const product_infos = [
         {

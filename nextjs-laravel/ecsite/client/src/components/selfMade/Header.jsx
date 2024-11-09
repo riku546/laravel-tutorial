@@ -23,7 +23,7 @@ const Header = () => {
             </div>
             <div className={styles.iconArea}>
                 <ShoppingCartIcon className={styles.cartIcon} />
-                <Hamburger  />
+                <Hamburger />
             </div>
         </header>
     )
