@@ -10,6 +10,12 @@
     z-index: 1000; /* 他の要素の上に表示されるようにする */
 }
 
+.cart{
+    height: 100%;
+    display: flex;
+
+}
+
 .amazonIcon {
     display: flex;
     gap: 20px;

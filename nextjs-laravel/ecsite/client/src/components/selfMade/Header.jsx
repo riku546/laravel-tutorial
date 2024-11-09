@@ -4,6 +4,7 @@ import styles from '@/styles/components/Header.module.css'
 import Hamburger from './Hamburger'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import Link from 'next/link'
+import { sumQuantityInCart } from '@/lib/cartFunc'
 
 const Header = () => {
     return (
@@ -24,9 +25,14 @@ const Header = () => {
                 </a>
             </div>
             <div className={styles.iconArea}>
-                <Link href={'/cart'}>
-                    <ShoppingCartIcon className={styles.cartIcon} />
-                </Link>
+                <div className={styles.cart}>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <Link href={'/cart'}>
+                            <ShoppingCartIcon className={styles.cartIcon} />
+                        </Link>
+                    </div>
+                    <span>{sumQuantityInCart()}</span>
+                </div>
                 <Hamburger />
             </div>
         </header>
