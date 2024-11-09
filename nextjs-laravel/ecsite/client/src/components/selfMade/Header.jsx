@@ -24,7 +24,9 @@ const Header = () => {
                 </a>
             </div>
             <div className={styles.iconArea}>
-                <ShoppingCartIcon className={styles.cartIcon} />
+                <Link href={'/cart'}>
+                    <ShoppingCartIcon className={styles.cartIcon} />
+                </Link>
                 <Hamburger />
             </div>
         </header>

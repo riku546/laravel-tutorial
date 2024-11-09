@@ -72,8 +72,12 @@ const Home = () => {
             <Header />
 
             <main className={styles.mainArea}>
-                {product_infos.map(info => (
-                    <Link href={'/productPage'}>
+                {product_infos.map((info, productId) => (
+                    <Link
+                        href={{
+                            pathname: '/productPage',
+                            query: { productId: productId },
+                        }}>
                         <ProductCard
                             name={info.name}
                             description={info.description}
