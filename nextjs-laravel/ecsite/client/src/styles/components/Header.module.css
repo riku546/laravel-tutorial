@@ -14,3 +14,15 @@
     display: flex;
     gap: 20px;
 }
+
+/* カートアイコンとハンバーガーメニューの親属性のcss */
+.iconArea {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cartIcon:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}

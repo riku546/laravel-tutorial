@@ -2,6 +2,7 @@ import Header from '@/components/selfMade/Header'
 import ProductCard from '@/components/selfMade/ProductCard'
 import styles from '@/styles/pages/topPage.module.css'
 import './global.css'
+import Link from 'next/link'
 
 const Home = () => {
     const product_infos = [
@@ -72,10 +73,12 @@ const Home = () => {
 
             <main className={styles.mainArea}>
                 {product_infos.map(info => (
-                    <ProductCard
-                        name={info.name}
-                        description={info.description}
-                    />
+                    <Link href={'/productPage'}>
+                        <ProductCard
+                            name={info.name}
+                            description={info.description}
+                        />
+                    </Link>
                 ))}
             </main>
         </div>
