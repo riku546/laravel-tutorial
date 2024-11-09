@@ -8,6 +8,10 @@ import Button from '@mui/material/Button'
 import { useSearchParams } from 'next/navigation'
 import { addToCart } from '@/lib/cartFunc'
 
+import MenuItem from '@mui/material/MenuItem'
+import Select from '@mui/material/Select'
+import { FormControl } from '@mui/material'
+
 const page = () => {
     const searchParams = useSearchParams()
     const productId = searchParams.get('productId')
@@ -39,12 +43,21 @@ const page = () => {
                             <ReadStars />
                             <p className={styles.price}>¥ 100</p>
                         </div>
-                        <input
-                            type="number"
-                            value={buyQuantity}
-                            onChange={e => setButQuantity(e.target.value)}
-                            style={{ width: '80px' }}
-                        />
+
+                        {/* 商品の個数のselect */}
+                        <FormControl sx={{ m: 1, minWidth: 120 }}>
+                            <Select
+                                value={buyQuantity}
+                                onChange={e => setButQuantity(e.target.value)}
+                                displayEmpty>
+                                <MenuItem value={1}>1</MenuItem>
+                                <MenuItem value={2}>2</MenuItem>
+                                <MenuItem value={3}>3</MenuItem>
+                                <MenuItem value={4}>4</MenuItem>
+                                <MenuItem value={5}>5</MenuItem>
+                            </Select>
+                        </FormControl>
+
                         <Button
                             variant="contained"
                             // カート(セッション)に商品のidと個数を入れる

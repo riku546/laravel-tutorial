@@ -1,10 +1,12 @@
+'use client'
+
 import React from 'react'
 import styles from '@/styles/pages/cart.module.css'
 import Header from '@/components/selfMade/Header'
 
 const page = () => {
-
-
+    const cart = sessionStorage.getItem('cart')
+    
 
     return (
         <div className="container">
@@ -13,7 +15,7 @@ const page = () => {
             <main className={styles.mainArea}>
                 <h2 style={{ fontSize: '27px' }}>ショッピングカート</h2>
                 <section>
-                    <div></div>                    
+                    <div>{}</div>
                 </section>
             </main>
         </div>
