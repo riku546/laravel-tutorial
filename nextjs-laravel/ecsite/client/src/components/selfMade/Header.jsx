@@ -1,5 +1,7 @@
+"use client"
+
 import LoginLinks from '@/app/LoginLinks'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '@/styles/components/Header.module.css'
 import Hamburger from './Hamburger'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
@@ -7,6 +9,12 @@ import Link from 'next/link'
 import { sumQuantityInCart } from '@/lib/cartFunc'
 
 const Header = () => {
+    const [sumQuantity, setSumQuantity] = useState(0)
+
+    useEffect(() => {
+        
+    }, [])
+
     return (
         <header className={styles.container}>
             <div className={styles.amazonIcon}>
@@ -31,7 +39,7 @@ const Header = () => {
                             <ShoppingCartIcon className={styles.cartIcon} />
                         </Link>
                     </div>
-                    <span>{sumQuantityInCart()}</span>
+                    <p>{sumQuantityInCart()}</p>
                 </div>
                 <Hamburger />
             </div>
