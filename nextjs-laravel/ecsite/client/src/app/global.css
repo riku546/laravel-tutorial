@@ -3,6 +3,19 @@
 @tailwind utilities;
 
 
+
 .layout{
   padding: 28px;
 }
+
+.antialiased{
+  display: flex;
+  justify-content: center;
+}
+
+.container{
+  padding: 30px;
+  
+}
+
+
