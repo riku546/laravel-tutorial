@@ -2,9 +2,11 @@ import Header from '@/components/selfMade/Header'
 
 const Home = () => {
     return (
-        <div>
+        <div className='layout'>
             <Header></Header>
-            <main></main>
+            <main>
+                
+            </main>
         </div>
     )
 }

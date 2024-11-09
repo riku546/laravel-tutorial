@@ -1,8 +1,6 @@
 .container {
     display: flex;
     justify-content: space-between;
-    height: 100px;
-    padding: 28px;
 }
 
 .amazonIcon {
