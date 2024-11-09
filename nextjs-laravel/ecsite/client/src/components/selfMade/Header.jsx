@@ -2,6 +2,8 @@ import LoginLinks from '@/app/LoginLinks'
 import React from 'react'
 import styles from '@/styles/components/Header.module.css'
 import Hamburger from './Hamburger'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
+import Link from 'next/link'
 
 const Header = () => {
     return (
@@ -19,7 +21,10 @@ const Header = () => {
                     Amazon icons created by pocike - Flaticon
                 </a>
             </div>
-            <Hamburger />
+            <div className={styles.iconArea}>
+                <ShoppingCartIcon className={styles.cartIcon} />
+                <Hamburger  />
+            </div>
         </header>
     )
 }
