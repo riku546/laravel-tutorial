@@ -3,6 +3,9 @@ import styles from '@/styles/pages/cart.module.css'
 import Header from '@/components/selfMade/Header'
 
 const page = () => {
+
+
+
     return (
         <div className="container">
             <Header />
@@ -10,8 +13,7 @@ const page = () => {
             <main className={styles.mainArea}>
                 <h2 style={{ fontSize: '27px' }}>ショッピングカート</h2>
                 <section>
-                    <div></div>
-                    
+                    <div></div>                    
                 </section>
             </main>
         </div>

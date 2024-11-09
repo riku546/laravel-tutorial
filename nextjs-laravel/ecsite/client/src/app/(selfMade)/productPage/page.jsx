@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 import styles from '@/styles/pages/productPage.module.css'
 import Button from '@mui/material/Button'
 import { useSearchParams } from 'next/navigation'
+import { addToCart } from '@/lib/cartFunc'
 
 const page = () => {
     const searchParams = useSearchParams()
@@ -47,9 +48,7 @@ const page = () => {
                         <Button
                             variant="contained"
                             // カート(セッション)に商品のidと個数を入れる
-                            onClick={() =>
-                                sessionStorage.setItem(productId, buyQuantity)
-                            }>
+                            onClick={() => addToCart(productId, buyQuantity)}>
                             カートに入れる
                         </Button>
                     </div>
