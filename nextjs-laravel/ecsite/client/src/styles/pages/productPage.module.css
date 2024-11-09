@@ -1,0 +1,24 @@
+.mainArea {
+    padding-top: 100px;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.productInfos {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.productName {
+    font-size: 40px;
+}
+
+.price {
+    font-size: 23px;
+}
+
+.description {
+    word-break: keep-all;
+}
