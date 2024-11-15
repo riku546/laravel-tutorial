@@ -7,7 +7,6 @@ import styles from '@/styles/pages/productPage.module.css'
 import Button from '@mui/material/Button'
 import { useSearchParams } from 'next/navigation'
 import { addToCart } from '@/lib/cartFunc'
-
 import MenuItem from '@mui/material/MenuItem'
 import Select from '@mui/material/Select'
 import { FormControl } from '@mui/material'

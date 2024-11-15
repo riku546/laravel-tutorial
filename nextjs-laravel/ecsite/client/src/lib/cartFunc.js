@@ -15,29 +15,14 @@ export const addToCart = (productId, buyQuantity) => {
     else {
         //jsonからオブジェクトに変換する
         const currentCart = JSON.parse(cart)
+
         currentCart[productId] = Number(buyQuantity)
         sessionStorage.setItem('cart', JSON.stringify(currentCart))
     }
 }
 
-//カート（セッション）に保存されている商品の総数を返す
-export const sumQuantityInCart = () => {
-    //セッションはサーバーが起動した後じゃないと使えない(ブラウザーの機能だから)
-    //この条件はサーバーが起動しているときにセッションを使用しないようにする
-    if (
-        typeof window !== 'undefined' &&
-        typeof sessionStorage !== 'undefined'
-    ) {
-        //jsonからオブジェクトに変換する
-        const cart = JSON.parse(sessionStorage.getItem('cart'))
-        let sumQuantity = 0
+export const getCartInfo = () => {
+    const cartContents = JSON.parse(sessionStorage.getItem('cart'))
 
-        Object.keys(cart).forEach(key => {
-            sumQuantity += cart[key]
-        })
-
-        return sumQuantity
-    } else {
-        return 0
-    }
+    return cartContents
 }
