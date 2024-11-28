@@ -9,27 +9,46 @@ const Home = () => {
         {
             name: 'water',
             description: 'waterwater',
-            productId:0,
+            productId: 0,
         },
         {
-            name: 'water',
-            description: 'waterwater',
-            productId:0,
+            name: 'ipad',
+            description: 'ipad',
+            productId: 2,
         },
         {
-            name: 'water',
-            description: 'waterwater',
-            productId:0,
+            name: 'mouse',
+            description: 'mouse',
+            productId: 3,
         },
-
-        
+        {
+            name: 'iphone15',
+            description: 'iphone15',
+            productId: 1,
+        },
+        {
+            name: 'monitor',
+            description: 'monitor',
+            productId: 4,
+        },
+        { name: 'keyboard', description: 'keyboard', productId: 5 },
+        {
+            name: 'tissue',
+            description: 'tissue',
+            productId: 6,
+        },
+        {
+            name: 'microphone',
+            description: 'microphone',
+            productId: 7,
+        },
     ]
     return (
         <div className="container">
             <Header />
 
             <main className={styles.mainArea}>
-                {product_infos.map((info) => (
+                {product_infos.map(info => (
                     <Link
                         href={{
                             pathname: '/productPage',
@@ -37,7 +56,7 @@ const Home = () => {
                         }}>
                         <ProductCard
                             name={info.name}
-                            description={info.description}
+                            productId={info.productId}
                         />
                     </Link>
                 ))}

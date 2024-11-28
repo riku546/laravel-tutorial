@@ -2,17 +2,27 @@
     display: grid;
     grid-template-columns: 2fr 4fr;
     gap: 20px;
+    background-color: rgba(230, 229, 229, 0.644);
+    padding: 25px;
 }
 
 .productImg {
     border-radius: 10px;
-    max-width: 350px;
+    width: 80%;
+
 }
 
 .productInfo {
-    max-width: 600px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
+.nameAndPrice {
+    display: flex;
+    justify-content: space-between;
+}
 .productName {
     font-size: 30px;
     word-break: keep-all;
@@ -22,7 +32,19 @@
     word-break: keep-all;
 }
 
-.nameAndPrice {
+.userOperationArea {
     display: flex;
-    justify-content: space-between;
+    gap: 30px;
+    align-items: end;
+}
+
+.deleteArea {
+    display: flex;
+    color: blue;
+    font-size: 20px;
+}
+
+.deleteArea:hover {
+    opacity: 0.6;
+    cursor: pointer;
 }

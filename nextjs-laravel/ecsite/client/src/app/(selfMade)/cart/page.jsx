@@ -17,7 +17,7 @@ const page = () => {
             <main className={styles.mainArea}>
                 <h2 style={{ fontSize: '27px' }}>ショッピングカート</h2>
                 <div className={styles.cartArea}>
-                    <section>
+                    <section className={styles.productList}>
                         {cartContents &&
                             Object.entries(cartContents).map(
                                 ([productId, buyQuantity]) => {

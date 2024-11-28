@@ -7,23 +7,20 @@ import styles from '@/styles/pages/productPage.module.css'
 import Button from '@mui/material/Button'
 import { useSearchParams } from 'next/navigation'
 import { addToCart } from '@/lib/cartFunc'
-import MenuItem from '@mui/material/MenuItem'
-import Select from '@mui/material/Select'
-import { FormControl } from '@mui/material'
+import ProductNumSelect from '@/components/selfMade/ProductNumSelect'
 
 const page = () => {
     const searchParams = useSearchParams()
     const productId = searchParams.get('productId')
     //商品の購入数量
-    const [buyQuantity, setButQuantity] = useState(1)
-
+    const [buyQuantity, setBuyQuantity] = useState(1)
     return (
         <div className="container">
             <Header />
 
             <main className={styles.mainArea}>
                 <img
-                    src="/productImg/0.jpg"
+                    src={`/productImg/${productId}.jpg`}
                     alt=""
                     className={styles.productImg}
                 />
@@ -43,19 +40,7 @@ const page = () => {
                             <p className={styles.price}>¥ 100</p>
                         </div>
 
-                        {/* 商品の個数のselect */}
-                        <FormControl sx={{ m: 1, minWidth: 120 }}>
-                            <Select
-                                value={buyQuantity}
-                                onChange={e => setButQuantity(e.target.value)}
-                                displayEmpty>
-                                <MenuItem value={1}>1</MenuItem>
-                                <MenuItem value={2}>2</MenuItem>
-                                <MenuItem value={3}>3</MenuItem>
-                                <MenuItem value={4}>4</MenuItem>
-                                <MenuItem value={5}>5</MenuItem>
-                            </Select>
-                        </FormControl>
+                        <ProductNumSelect buyQuantity={buyQuantity} setBuyQuantity = {setBuyQuantity} />
 
                         <Button
                             variant="contained"
