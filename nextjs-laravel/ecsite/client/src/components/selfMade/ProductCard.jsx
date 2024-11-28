@@ -12,7 +12,7 @@ export default function ProductCard({name ,description}) {
             <CardActionArea>
                 <CardMedia
                     component="img"
-                    image="/view-water-with-plastic-bottle.jpg"
+                    image="/productImg/0.jpg"
                     alt="green iguana"
                 />
                 <CardContent>

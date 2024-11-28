@@ -9,74 +9,31 @@ const Home = () => {
         {
             name: 'water',
             description: 'waterwater',
+            productId:0,
         },
         {
             name: 'water',
             description: 'waterwater',
+            productId:0,
         },
         {
             name: 'water',
             description: 'waterwater',
+            productId:0,
         },
-        {
-            name: 'water',
-            description: 'waterwater',
-        },
-        {
-            name: 'water',
-            description: 'waterwater',
-        },
-        {
-            name: 'water',
-            description: 'waterwater',
-        },
-        {
-            name: 'water',
-            description: 'waterwater',
-        },
-        {
-            name: 'water',
-            description: 'waterwater',
-        },
-        {
-            name: 'water',
-            description: 'waterwater',
-        },
-        {
-            name: 'water',
-            description: 'waterwater',
-        },
-        {
-            name: 'water',
-            description: 'waterwater',
-        },
-        {
-            name: 'water',
-            description: 'waterwater',
-        },
-        {
-            name: 'water',
-            description: 'waterwater',
-        },
-        {
-            name: 'water',
-            description: 'waterwater',
-        },
-        {
-            name: 'water',
-            description: 'waterwater',
-        },
+
+        
     ]
     return (
         <div className="container">
             <Header />
 
             <main className={styles.mainArea}>
-                {product_infos.map((info, productId) => (
+                {product_infos.map((info) => (
                     <Link
                         href={{
                             pathname: '/productPage',
-                            query: { productId: productId },
+                            query: { productId: info.productId },
                         }}>
                         <ProductCard
                             name={info.name}
