@@ -16,14 +16,20 @@ const page = () => {
                 <h2 style={{ fontSize: '27px' }}>ショッピングカート</h2>
                 <section>
                     {cartContents &&
-                        Object.entries(cartContents).map(([key, value]) => {
-                            return (
-                                <div style={{display:"flex"}}>
-                                    <p>{key}</p>
-                                    <p>{value}</p>
-                                </div>
-                            )
-                        })}
+                        Object.entries(cartContents).map(
+                            ([productId, value]) => {
+                                return (
+                                    <div style={{ display: 'flex' }}>
+                                        <img
+                                            src={`/productImg/${productId}.jpg`}
+                                            alt=""
+                                            
+                                        />
+                                        <p>{value}</p>
+                                    </div>
+                                )
+                            },
+                        )}
                 </section>
             </main>
         </div>

@@ -15,14 +15,18 @@ export const addToCart = (productId, buyQuantity) => {
     else {
         //jsonからオブジェクトに変換する
         const currentCart = JSON.parse(cart)
-
         currentCart[productId] = Number(buyQuantity)
         sessionStorage.setItem('cart', JSON.stringify(currentCart))
     }
 }
 
+export const updateCartContents = () => {
+    
+}
+
+export const deleteProductInCart = () =>{}
+
 export const getCartInfo = () => {
     const cartContents = JSON.parse(sessionStorage.getItem('cart'))
-
     return cartContents
 }

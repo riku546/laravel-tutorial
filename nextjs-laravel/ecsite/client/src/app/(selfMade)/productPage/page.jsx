@@ -23,7 +23,7 @@ const page = () => {
 
             <main className={styles.mainArea}>
                 <img
-                    src="/view-water-with-plastic-bottle.jpg"
+                    src="/productImg/0.jpg"
                     alt=""
                     className={styles.productImg}
                 />
