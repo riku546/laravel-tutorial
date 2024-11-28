@@ -3,10 +3,10 @@
 import React, { useState } from 'react'
 import styles from '@/styles/pages/cart.module.css'
 import Header from '@/components/selfMade/Header'
-import { getCartInfo } from '@/lib/cartFunc'
+import { getCartContents } from '@/lib/cartFunc'
 
 const page = () => {
-    const [cartContents, setCartContent] = useState(getCartInfo())
+    const [cartContents, setCartContent] = useState(getCartContents())
 
     return (
         <div className="container">
