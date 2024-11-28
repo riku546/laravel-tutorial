@@ -1,0 +1,28 @@
+.mainArea {
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+    gap: 20px;
+}
+
+.productImg {
+    border-radius: 10px;
+    max-width: 350px;
+}
+
+.productInfo {
+    max-width: 600px;
+}
+
+.productName {
+    font-size: 30px;
+    word-break: keep-all;
+}
+.productPrice {
+    font-size: 30px;
+    word-break: keep-all;
+}
+
+.nameAndPrice {
+    display: flex;
+    justify-content: space-between;
+}

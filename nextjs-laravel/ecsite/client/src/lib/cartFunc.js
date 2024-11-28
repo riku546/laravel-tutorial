@@ -1,9 +1,13 @@
+// このモジュールでは、カートの中身の取得 カートに商品を追加 カートの中身を変更 カートから商品を削除する関数が用意されている。
+
 export const getCartContents = () => {
+    // セッションではjson形式の文字列が保存されているので、カートをオブジェクトに変換
     const cartContents = JSON.parse(sessionStorage.getItem('cart'))
     return cartContents
 }
 
 const setCartContents = cartContents => {
+    //オブジェクトをjson形式の文字列に変換(セッションはデータを文字列で保存するため、文字列にする必要がある)
     sessionStorage.setItem('cart', JSON.stringify(cartContents))
 }
 
