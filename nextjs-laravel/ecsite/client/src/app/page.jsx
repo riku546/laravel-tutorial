@@ -55,6 +55,7 @@ const Home = () => {
                             query: { productId: info.productId },
                         }}>
                         <ProductCard
+                            key={info.productId}
                             name={info.name}
                             productId={info.productId}
                         />

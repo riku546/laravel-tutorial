@@ -8,6 +8,7 @@ import Button from '@mui/material/Button'
 import { useSearchParams } from 'next/navigation'
 import { addToCart } from '@/lib/cartFunc'
 import ProductNumSelect from '@/components/selfMade/ProductNumSelect'
+import Link from 'next/link'
 
 const page = () => {
     const searchParams = useSearchParams()
@@ -40,14 +41,21 @@ const page = () => {
                             <p className={styles.price}>¥ 100</p>
                         </div>
 
-                        <ProductNumSelect buyQuantity={buyQuantity} setBuyQuantity = {setBuyQuantity} />
+                        <ProductNumSelect
+                            buyQuantity={buyQuantity}
+                            setBuyQuantity={setBuyQuantity}
+                        />
 
-                        <Button
-                            variant="contained"
-                            // カート(セッション)に商品のidと個数を入れる
-                            onClick={() => addToCart(productId, buyQuantity)}>
-                            カートに入れる
-                        </Button>
+                        <Link href={'/cart'}>
+                            <Button
+                                variant="contained"
+                                // カート(セッション)に商品のidと個数を入れる
+                                onClick={() =>
+                                    addToCart(productId, buyQuantity)
+                                }>
+                                カートに入れる
+                            </Button>
+                        </Link>
                     </div>
                 </article>
             </main>
