@@ -6,13 +6,17 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import Link from 'next/link'
 import AddCircleIcon from '@mui/icons-material/AddCircle'
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle'
+
 import {
     decreaseProductInCart,
+    deleteProductInCart,
     getProductNum,
     increaseProductInCart,
 } from '@/lib/cartFunc'
 
+
 const ChangeBuyQuantity = ({ productId }) => {
+    
     const [buyQuantity, setBuyQuantity] = useState(getProductNum(productId))
 
     //セッションとステートの両方のbuyQuantityを１減らす
@@ -29,11 +33,22 @@ const ChangeBuyQuantity = ({ productId }) => {
         setBuyQuantity(updatedProductNumInCart)
     }
 
+    const deleteFunc = (productId) => {
+        deleteProductInCart(productId)
+        window.location.reload()
+    }
+
     return (
         <div style={{ display: 'flex', gap: '7px' }}>
-            <div onClick={() => decreaseFunc(productId)}>
-                <RemoveCircleIcon />
-            </div>
+            {buyQuantity == 1 ? (
+                <div onClick={() => deleteFunc(productId)}>
+                    <DeleteIcon />
+                </div>
+            ) : (
+                <div onClick={() => decreaseFunc(productId)}>
+                    <RemoveCircleIcon />
+                </div>
+            )}
             <p>{buyQuantity}</p>
             <div onClick={() => increaseFunc(productId)}>
                 <AddCircleIcon />
@@ -43,6 +58,10 @@ const ChangeBuyQuantity = ({ productId }) => {
 }
 
 export const ProductCardInCart = ({ productId }) => {
+    const deleteFunc = (productId) => {
+        deleteProductInCart(productId)
+        window.location.reload()
+    }
     return (
         <div className={styles.mainArea}>
             <Link
@@ -64,7 +83,9 @@ export const ProductCardInCart = ({ productId }) => {
                 <div className={styles.userOperationArea}>
                     <ChangeBuyQuantity productId={productId} />
                     <div className={styles.deleteArea}>
-                        <DeleteIcon />
+                        <div onClick={() => deleteFunc(productId)}>
+                            <DeleteIcon />
+                        </div>
                         <p>削除</p>
                     </div>
                 </div>

@@ -15,7 +15,7 @@ export const getProductNum = productId => {
 const setCartContents = cartContents => {
     //オブジェクトをjson形式の文字列に変換(セッションはデータを文字列で保存するため、文字列にする必要がある)
     sessionStorage.setItem('cart', JSON.stringify(cartContents))
-}
+}   
 
 export const addToCart = (productId, /*商品の購入個数*/ buyQuantity) => {
     const cartContents = getCartContents()
