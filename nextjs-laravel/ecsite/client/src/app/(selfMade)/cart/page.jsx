@@ -5,7 +5,7 @@ import styles from '@/styles/pages/cart.module.css'
 import Header from '@/components/selfMade/Header'
 import { getCartContents } from '@/lib/cartFunc'
 import BuyButtonCard from '@/components/selfMade/BuyButtonCard'
-import ProductCardInCart from '@/components/selfMade/ProductCardInCart'
+import { ProductCardInCart } from '@/components/selfMade/ProductCardInCart'
 
 const page = () => {
     const [cartContents, setCartContent] = useState(getCartContents())
