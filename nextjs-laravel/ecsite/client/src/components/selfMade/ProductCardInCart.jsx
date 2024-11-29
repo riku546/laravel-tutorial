@@ -14,9 +14,7 @@ import {
     increaseProductInCart,
 } from '@/lib/cartFunc'
 
-
 const ChangeBuyQuantity = ({ productId }) => {
-    
     const [buyQuantity, setBuyQuantity] = useState(getProductNum(productId))
 
     //セッションとステートの両方のbuyQuantityを１減らす
@@ -33,7 +31,7 @@ const ChangeBuyQuantity = ({ productId }) => {
         setBuyQuantity(updatedProductNumInCart)
     }
 
-    const deleteFunc = (productId) => {
+    const deleteFunc = productId => {
         deleteProductInCart(productId)
         window.location.reload()
     }
@@ -58,7 +56,7 @@ const ChangeBuyQuantity = ({ productId }) => {
 }
 
 export const ProductCardInCart = ({ productId }) => {
-    const deleteFunc = (productId) => {
+    const deleteFunc = productId => {
         deleteProductInCart(productId)
         window.location.reload()
     }
@@ -82,10 +80,10 @@ export const ProductCardInCart = ({ productId }) => {
                 </div>
                 <div className={styles.userOperationArea}>
                     <ChangeBuyQuantity productId={productId} />
-                    <div className={styles.deleteArea}>
-                        <div onClick={() => deleteFunc(productId)}>
-                            <DeleteIcon />
-                        </div>
+                    <div
+                        className={styles.deleteArea}
+                        onClick={() => deleteFunc(productId)}>
+                        <DeleteIcon />
                         <p>削除</p>
                     </div>
                 </div>
