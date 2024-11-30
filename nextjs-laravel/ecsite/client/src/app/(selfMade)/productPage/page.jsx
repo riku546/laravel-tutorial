@@ -2,19 +2,44 @@
 
 import Header from '@/components/selfMade/Header'
 import ReadStars from '@/components/selfMade/ReadStars'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '@/styles/pages/productPage.module.css'
 import Button from '@mui/material/Button'
 import { useSearchParams } from 'next/navigation'
 import { addToCart } from '@/lib/cartFunc'
 import ProductNumSelect from '@/components/selfMade/ProductNumSelect'
 import Link from 'next/link'
+import axios from '@/lib/axios'
 
 const page = () => {
-    const searchParams = useSearchParams()
-    const productId = searchParams.get('productId')
     //商品の購入数量
     const [buyQuantity, setBuyQuantity] = useState(1)
+    const [productInfo, setProductInfo] = useState({
+        name: '',
+        description: '',
+        price: null,
+        stars: null,
+    })
+
+    const searchParams = useSearchParams()
+    const productId = searchParams.get('productId')
+
+    const fetchProductInfo = async () => {
+        try {
+            const result = await axios.get(
+                `/api/specificProductInfo/${productId}`,
+            )
+            setProductInfo(result.data)
+            console.log(result.data)
+        } catch (error) {
+            window.alert('エラーが発生しました。再読込みしてください')
+        }
+    }
+
+    useEffect(() => {
+        fetchProductInfo()
+    }, [])
+
     return (
         <div className="container">
             <Header />
@@ -26,9 +51,9 @@ const page = () => {
                     className={styles.productImg}
                 />
                 <article className={styles.productInfos}>
-                    <h4 className={styles.productName}>water</h4>
+                    <h4 className={styles.productName}>{productInfo.name}</h4>
                     <p className={styles.description}>
-                        硬度15の国内でも数少ない柔らかいお水となります。日本人に適していると言われる硬度15㎎/Lの軟水は、口当たりがまろやかで飲みやすい優しいお水。そのままでも、お料理やお酒の水割り、お茶やコーヒーなど様々な用途にお使いいただけます。
+                        {productInfo.description}
                     </p>
                     <div
                         style={{
@@ -38,7 +63,9 @@ const page = () => {
                         }}>
                         <div>
                             <ReadStars />
-                            <p className={styles.price}>¥ 100</p>
+                            <p className={styles.price}>
+                                ¥ {productInfo.price}
+                            </p>
                         </div>
 
                         <ProductNumSelect

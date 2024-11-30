@@ -1,63 +1,43 @@
+'use client'
+
 import Header from '@/components/selfMade/Header'
 import ProductCard from '@/components/selfMade/ProductCard'
 import styles from '@/styles/pages/topPage.module.css'
 import './global.css'
 import Link from 'next/link'
+import axios from '@/lib/axios'
+import { useEffect, useState } from 'react'
 
 const Home = () => {
-    const product_infos = [
-        {
-            name: 'water',
-            description: 'waterwater',
-            productId: 0,
-        },
-        {
-            name: 'ipad',
-            description: 'ipad',
-            productId: 2,
-        },
-        {
-            name: 'mouse',
-            description: 'mouse',
-            productId: 3,
-        },
-        {
-            name: 'iphone15',
-            description: 'iphone15',
-            productId: 1,
-        },
-        {
-            name: 'monitor',
-            description: 'monitor',
-            productId: 4,
-        },
-        { name: 'keyboard', description: 'keyboard', productId: 5 },
-        {
-            name: 'tissue',
-            description: 'tissue',
-            productId: 6,
-        },
-        {
-            name: 'microphone',
-            description: 'microphone',
-            productId: 7,
-        },
-    ]
+    const [productsInfo, setProductsInfo] = useState([{}])
+    const fetchAllProductsInfo = async () => {
+        try {
+            const productsInfo = await axios.get('/api/allProductsInfo')
+            setProductsInfo(productsInfo.data)
+        } catch (error) {
+            window.alert('エラーが発生しました。再読込みしてください')
+        }
+    }
+
+    useEffect(() => {
+        fetchAllProductsInfo()
+    }, [])
+
     return (
         <div className="container">
             <Header />
 
             <main className={styles.mainArea}>
-                {product_infos.map(info => (
+                {productsInfo.map(productInfo => (
                     <Link
                         href={{
                             pathname: '/productPage',
-                            query: { productId: info.productId },
+                            query: { productId: productInfo.id },
                         }}>
                         <ProductCard
-                            key={info.productId}
-                            name={info.name}
-                            productId={info.productId}
+                            key={productInfo.id}
+                            name={productInfo.name}
+                            productId={productInfo.id}
                         />
                     </Link>
                 ))}
