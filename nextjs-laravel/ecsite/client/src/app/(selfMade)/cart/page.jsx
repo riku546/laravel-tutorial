@@ -6,12 +6,10 @@ import Header from '@/components/selfMade/Header'
 import { getCartContents } from '@/lib/cartFunc'
 import BuyButtonCard from '@/components/selfMade/BuyButtonCard'
 import { ProductCardInCart } from '@/components/selfMade/ProductCardInCart'
-import useCart from '@/hooks/page/cart'
 
 const page = () => {
     const [cartContents, setCartContent] = useState(getCartContents())
-    
-    
+
     return (
         <div className="container">
             <Header />
@@ -23,7 +21,10 @@ const page = () => {
                         {cartContents &&
                             Object.entries(cartContents).map(([productId]) => {
                                 return (
-                                    <ProductCardInCart productId={productId} key={productId} />
+                                    <ProductCardInCart
+                                        productId={productId}
+                                        key={productId}
+                                    />
                                 )
                             })}
                     </section>

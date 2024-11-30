@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 
 class ProductController extends Controller
 {
@@ -14,8 +13,8 @@ class ProductController extends Controller
     public function index()
     {
         try {
-            Log::debug("ProductController@index");
-            $all_product_info = DB::select('select id , name  from products');
+
+            $all_product_info = DB::select('select id , name , price  from products');
             return response()->json($all_product_info);
         } catch (\Throwable $th) {
             return response()->json(['error' => 'An error occurred while fetching the products.'], 500);
@@ -37,7 +36,7 @@ class ProductController extends Controller
     {
         try {
             $specific_product_info = DB::select('select name , description , price , stars from products where id = ?', [$id]);
-            Log::debug($specific_product_info);
+
             return response()->json($specific_product_info);
         } catch (\Throwable $th) {
             return response()->json(['error' => 'An error occurred while fetching the product.'], 500);

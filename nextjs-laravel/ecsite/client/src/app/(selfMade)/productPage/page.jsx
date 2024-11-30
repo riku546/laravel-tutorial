@@ -29,8 +29,12 @@ const page = () => {
             const result = await axios.get(
                 `/api/specificProductInfo/${productId}`,
             )
-            setProductInfo(result.data)
-            console.log(result.data)
+
+            //result.dataは配列の中にオブジェクトが格納されているが、productInfoのデータ構造はオブジェクトなので
+            //result.data配列からオブジェクトを取り出している
+            const result_object = result.data[0]
+
+            setProductInfo(result_object)
         } catch (error) {
             window.alert('エラーが発生しました。再読込みしてください')
         }
