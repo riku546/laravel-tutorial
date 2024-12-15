@@ -46,6 +46,7 @@ const Home = () => {
             <main className={styles.mainArea}>
                 {productsInfo.map(productInfo => (
                     <Link
+                        key={productInfo.id}
                         href={{
                             pathname: '/productPage',
                             query: { productId: productInfo.id },

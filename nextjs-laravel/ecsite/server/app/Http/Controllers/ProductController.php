@@ -17,7 +17,7 @@ class ProductController extends Controller
             $all_product_info = DB::select('select id , name , price  from products');
             return response()->json($all_product_info);
         } catch (\Throwable $th) {
-            return response()->json(['error' => 'An error occurred while fetching the products.'], 500);
+            return response()->json(['error' => $th], 500);
         }
     }
 
@@ -35,11 +35,10 @@ class ProductController extends Controller
     public function show(int $id)
     {
         try {
-            $specific_product_info = DB::select('select name , description , price , stars from products where id = ?', [$id]);
-
+            $specific_product_info = DB::select('select  name , description  , stars , price from products where id = ?', [$id]);
             return response()->json($specific_product_info);
         } catch (\Throwable $th) {
-            return response()->json(['error' => 'An error occurred while fetching the product.'], 500);
+            return response()->json(['error' => $th], 500);
         }
     }
 

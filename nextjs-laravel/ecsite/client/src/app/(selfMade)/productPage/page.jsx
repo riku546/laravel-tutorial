@@ -10,6 +10,7 @@ import { addToCart } from '@/lib/cartFunc'
 import ProductNumSelect from '@/components/selfMade/ProductNumSelect'
 import Link from 'next/link'
 import axios from '@/lib/axios'
+import { fetchProductInfo } from '@/lib/fetchProductInfo'
 
 const page = () => {
     //商品の購入数量
@@ -24,24 +25,12 @@ const page = () => {
     const searchParams = useSearchParams()
     const productId = searchParams.get('productId')
 
-    const fetchProductInfo = async () => {
-        try {
-            const result = await axios.get(
-                `/api/specificProductInfo/${productId}`,
-            )
-
-            //result.dataは配列の中にオブジェクトが格納されているが、productInfoのデータ構造はオブジェクトなので
-            //result.data配列からオブジェクトを取り出している
-            const result_object = result.data[0]
-
-            setProductInfo(result_object)
-        } catch (error) {
-            window.alert('エラーが発生しました。再読込みしてください')
-        }
+    const getAndSetProductInfo = async () => {
+        setProductInfo(await fetchProductInfo(productId))
     }
 
     useEffect(() => {
-        fetchProductInfo()
+        getAndSetProductInfo()
     }, [])
 
     return (

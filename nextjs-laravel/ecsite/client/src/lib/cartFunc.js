@@ -1,16 +1,13 @@
 // このモジュールでは、カートの中身の取得 カートに商品を追加 カートの中身を変更
 // カートから商品を削除 カートに入っている商品の合計金額を計算する関数が用意されている。
 
+import { Sumana } from 'next/font/google'
+import { list } from 'postcss'
+
 export const getCartContents = () => {
     // セッションではjson形式の文字列が保存されているので、カートをオブジェクトに変換
     const cartContents = JSON.parse(sessionStorage.getItem('cart'))
     return cartContents
-}
-
-//引数のproductIdに該当する商品の個数を返す
-export const getProductNum = productId => {
-    const cartContents = getCartContents()
-    return cartContents[productId]
 }
 
 const setCartContents = cartContents => {
@@ -67,6 +64,16 @@ export const deleteProductInCart = productId => {
     setCartContents(cartContents)
 }
 
-export const calcTotalPriceInCart = () => {
-    
+export const calcTotalPriceInCart = (
+    /* cartContentは左のようなオブジェクト {商品のid : カートに入っている商品の個数} */ cartContent,
+) => {
+    //ルートエンドポイントにアクセスしたら、すべての商品の価格がセッションに保存される。
+    const allProductPrices = JSON.parse(sessionStorage.getItem('ProductPrices'))
+    let totalPrice = 0
+
+    Object.entries(cartContent).map(([productId, buyQuantity]) => {
+        totalPrice += allProductPrices[productId] * buyQuantity
+    })
+
+    return totalPrice
 }

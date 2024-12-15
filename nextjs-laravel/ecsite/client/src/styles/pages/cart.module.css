@@ -14,3 +14,18 @@
   flex-direction: column;
   gap: 40px;
 }
+
+.cardStyle {
+  min-width: 180px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.totalPrice{
+font-size: 20px;
+word-break: break-all;
+}
