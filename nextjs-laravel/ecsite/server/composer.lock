@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c04bfdfdaf2e2c3fc5db89a8694f7a93",
+    "content-hash": "385db815ec9ba71a1e25a74ec4a7b38d",
     "packages": [
         {
             "name": "brick/math",
@@ -3176,16 +3176,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v16.3.0",
+            "version": "v15.7.0-beta.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "48af6bc64ca8157b3fdce100e856069963bac466"
+                "reference": "5fcd7e3019f229a4a39248e2ce55f54130e3a054"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/48af6bc64ca8157b3fdce100e856069963bac466",
-                "reference": "48af6bc64ca8157b3fdce100e856069963bac466",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/5fcd7e3019f229a4a39248e2ce55f54130e3a054",
+                "reference": "5fcd7e3019f229a4a39248e2ce55f54130e3a054",
                 "shasum": ""
             },
             "require": {
@@ -3229,9 +3229,9 @@
             ],
             "support": {
                 "issues": "https://github.com/stripe/stripe-php/issues",
-                "source": "https://github.com/stripe/stripe-php/tree/v16.3.0"
+                "source": "https://github.com/stripe/stripe-php/tree/v15.7.0-beta.1"
             },
-            "time": "2024-11-20T23:30:16+00:00"
+            "time": "2024-08-12T21:12:03+00:00"
         },
         {
             "name": "symfony/console",
@@ -8312,7 +8312,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "stripe/stripe-php": 10
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
