@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Stripe\StripeClient;
 
 header('Content-Type: application/json');
@@ -33,22 +34,31 @@ class StripeController extends Controller
     }
 
     //stipeで決済するためには、商品のprice_idが必要なので、商品をstripeに新規登録してprice_idを取得する
-    private function createPriceId($productName, $price)
+    private function create_priceId($productName, $price)
     {
         $stripe = new StripeClient(env('STRIPE_SECRET'));
 
         //商品をstripeに新規登録
-        $newProduct = $stripe->products->create(["name" => $productName]);
+        $new_product = $stripe->products->create(["name" => $productName]);
 
         //商品の価格をstripeに新規登録
-        $newPrice = $stripe->prices->create([
-            'product' => $newProduct->id,
+        $new_price = $stripe->prices->create([
+            'product' => $new_product->id,
             'unit_amount' => $price,
             'currency' => 'jpy',
         ]);
 
         //stripeのcheckout(決済)を作成するためにprice_idを返すが必要なので、price_idを返す
-        return $newPrice->id;
+        return $new_price->id;
+    }
+
+    private function save_new_price_id($stripe_price_id, $product_id)
+    {
+        try {
+            DB::insert('insert into stripe_price_id (product, stripe_price_id) values (?, ?)', [$product_id, $stripe_price_id]);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     //決済ステータス返す（決済が成功した場合は、レスポンスの"status" => "complete" , 失敗した場合は"status" => "open"）
