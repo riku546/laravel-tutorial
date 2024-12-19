@@ -3,6 +3,7 @@
 import axios from '@/lib/axios'
 import React, { useState, useEffect } from 'react'
 import { redirect } from 'next/navigation'
+import Link from 'next/link'
 
 const page = () => {
     const fetchCheckoutStatus = async sessionId => {
@@ -33,6 +34,7 @@ const page = () => {
     return (
         <section id="success">
             <p>success</p>
+            <Link href={"/"}>ホームに戻る</Link>
         </section>
     )
 }
