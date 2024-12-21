@@ -17,7 +17,7 @@ class ProductController extends Controller
             $all_product_info = DB::select('select id , name , price  from products');
             return response()->json($all_product_info);
         } catch (\Throwable $th) {
-            return response()->json(['error' => $th], 500);
+            throw $th;
         }
     }
 
@@ -38,7 +38,7 @@ class ProductController extends Controller
             $specific_product_info = DB::select('select  name , description  , stars , price from products where id = ?', [$id]);
             return response()->json($specific_product_info);
         } catch (\Throwable $th) {
-            return response()->json(['error' => $th], 500);
+            throw $th;
         }
     }
 
